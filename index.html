@@ -10,9 +10,131 @@
 <body>	
 <header>
 	<div class="wrapper">
-		<h1>Hello Gulp, Please Be Nice</h1>
+		<h1>Goodreads</h1>
+		<form class="movieQuery">
+			<div>
+				<input type="text" class="queryInput">
+			</div>
+			<div class="submitBtn">
+				<input type="submit" class="querySubmit" value="Submit" id="go">
+			</div>
+		</form>
 	</div>
 </header>
+
+<section class="movieInfo">
+	<div class="wrapper">
+		<div class="moviePoster">
+			{Movie Poster Goes Here}
+		</div>
+		<div class="movieDetails">
+			<div class="movieTitle">
+				{Movie Title Goes Here}
+			</div>
+			<div class="movieYear">
+				{Movie Year Goes Here}
+			</div>
+			<div class="movieOverview">
+				<h2>Overview</h2>
+				{Movie Overview Goes Here}
+			</div>
+			<div class="movieCast">
+				<h2>Cast</h2>
+				{Movie Cast Goes Here}
+			</div>
+			<div class="movieScore">
+				{Movie User Score Goes Here}<br>
+				User Score
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bookInfo">
+	<div class="wrapper">
+		<h1>Related books based on your movie search</h1>
+		<div class="bookResults"> <!-- Row of book results -->
+			<div class="book"> <!-- individual book result -->
+				<div class="bookPoster">
+					{Book Image Goes Here}
+				</div>
+				<div class="bookTitle">
+					{Book Title Goes Here}
+				</div>
+				<div class="bookAuthor">
+					{Book Author Goes Here}
+				</div>
+				<button>Select</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="stepOneStopwatch">
+	<div class="wrapper">
+		<div class="readingVerbiage">
+			{Reading Paragraph Goes Here}
+		</div>
+		<div>
+			<h1>01</h1>
+			<h2>Calculating average reading speed</h2>
+			<h3>Read the passage on the left and time yourself</h3>
+			{00m 00s}
+			<input type="submit" class="reset" value="Reset" id="reset">
+			<input type="submit" class="startStop" value="Start / Stop" id="startStop">
+		</div>
+	</div>
+</section>
+
+<section class="freeTimeQuery">
+	<div class="wrapper">
+		<div>
+			<h1>02</h1>
+			<h2>How much free time do you have to read everyday?</h2>
+			<h3>While you commute, when you have a break, after dinner etc ...</h3>
+		</div>
+		<div>
+			<form class="freeTimeInput">
+				<div>
+					<input type="text" class="freeTimeHours" placeholder="00">hours
+				</div>
+				<div>
+					<input type="text" class="freeTimeMinutes" placeholder="00">minutes
+				</div>
+				<div class="freeTimeSubmitBtn">
+					<input type="submit" class="freeTimeSubmit" value="Submit" id="go">
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+<section class="results">
+	<div class="wrapper">
+		<h1>Results</h1>
+		<h2>Based on your selection of the movie {Harry Potter} ..</h2>
+		<div>
+			<div class="resultsReadSpeed">
+				<p>Your average reading speed</p>
+				<p>{Reading Speed Number goes here}</p>
+				<p>words / minute</p>
+				<p>(slightly slower than the average of 23 words/minute)</p>
+			</div>
+			<div class="daysToRead">
+				<p>It will take you</p>
+				<p>{Number of day to read here}</p>
+				<p>days to finish the book</p>
+				<p>(slightly slower than the average of 23 words/minute)</p>
+			</div>
+			<div class="moreStats">
+				<p>More random stats</p>
+				<p>{Number goes here}</p>
+				<p>words / minute</p>
+				<p>(slightly slower than the average of 23 words/minute)</p>
+			</div>
+		</div>
+	</div>
+</section>
 
 <main>
 	<div class="wrapper">
@@ -26,7 +148,6 @@
 	</div>
 </main>
 
-<!-- Stopwatch section please do not modifiy without letting Beckah know, thanks -->
 <section id="stopwatch">
 	<h3>00 : 00 : 000</h3>
 	<button id="stopwatchToggle">Start</button>
@@ -46,9 +167,9 @@
 	</div>
 </footer>
 
-<script src="public/scripts/stopwatch.js"></script>
 <script src="https://use.fontawesome.com/be7cb9fabf.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="public/scripts/stopwatch.js"></script>
 <script src="public/scripts/main.js"></script>
 </body>
 </html>
