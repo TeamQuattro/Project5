@@ -14,11 +14,11 @@ booksMovies.getData = function(query) {
 			data: {
 				key: booksMovies.key,
 				format: 'json',
-				q: query,
+				q: query
 			}
 		}).then(function(res) {
 			console.log(res);
-			booksMovies.bookTitle = res.items[0].volumeInfo.title;
+			booksMovies.bookTitle = res.items.volumeInfo.title;
 		});
 };
 
@@ -30,7 +30,7 @@ booksMovies.events = function() {
 
 booksMovies.init = function (){
 	console.log ('This works');
-	booksMovies.getData("Harry Potter");
+	booksMovies.getData("Lord of the Flies");
 };
 
 $(function(){
