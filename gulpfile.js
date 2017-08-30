@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const concat = require("gulp-concat");
 const babel = require("gulp-babel");
+const plumber = require('gulp-plumber');
 
 // a task to compile our sass
 gulp.task("styles", () => {
@@ -15,6 +16,7 @@ gulp.task("styles", () => {
 // a task to compile our javascript
 gulp.task("scripts", () => {
 	return gulp.src("./dev/scripts/**/*.js")
+	.pipe(plumber())
 	// also can use "glob pattern" for src .dev/scripts/**/*.js
 	.pipe(babel({
 		presets: ["es2015"]
