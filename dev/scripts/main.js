@@ -40,6 +40,7 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	});
 }
 
+
 //get book information
 booksMovies.getData = () => {
 	$.ajax({
@@ -51,7 +52,7 @@ booksMovies.getData = () => {
 			format: "json",
 			q: "jurassic park"
 		}
-	}).then(function(res){
+	}).then((res) => {
 		console.log("test is working");
 		booksMovies.bookTitle = res.items[0].volumeInfo.title;
 		console.log(booksMovies.bookTitle);
@@ -59,12 +60,29 @@ booksMovies.getData = () => {
 	})
 };
 
+// autocomplete function
+// marvelApp.autocomplete = (sourceList) => {
+// 	$("#search").autocomplete({
+// 		minLength: 4,
+// 		source: marvelApp[sourceList],
+// 		focus: function(event, ui) {
+// 			$("#search").val(ui.item.label);
+// 				return false;
+// 		},
+// 		select: function(event, ui) {
+// 			$("#search").val(ui.item.label);
+// 			$("#id-box").val(ui.item.value);
+// 				return false;
+// 		}
+// 	});
+// };
 
 booksMovies.displayData = () => {
 };
 
-booksMovies.events = function() {
+booksMovies.events = () => {
 };
+
 
 booksMovies.init = function (){
 	// console.log ('This works');
@@ -79,6 +97,16 @@ booksMovies.events = () => {
 }
 
 $(booksMovies.init);
+booksMovies.init = () => {
+	console.log ("This works");
+	booksMovies.getData("Harry Potter");
+	booksMovies.getMovieInfo("Harry Potter");
+};
+
+$(() => {
+  booksMovies.init();
+});
+
 
 // Notes on developer:
 // Use double quotes
