@@ -103,11 +103,10 @@ booksMovies.init = () => {
 	booksMovies.getMovieInfo("Harry Potter");
 };
 
+
 $(() => {
   booksMovies.init();
 });
-
-
 // Notes on developer:
 // Use double quotes
 // Function style: Function expression (var function = () {})
