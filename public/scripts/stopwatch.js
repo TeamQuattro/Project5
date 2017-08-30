@@ -1,6 +1,10 @@
+"use strict";
+
 console.log("hello");
 
-function clock () {
+function clock() {
+	var _this = this;
+
 	var time = 0;
 	var offset;
 	var interval;
@@ -29,29 +33,28 @@ function clock () {
 		if (milliseconds < 3) {
 			milliseconds = "0" + milliseconds;
 		}
-		return (`${minutes} : ${seconds} : ${milliseconds}`);
+		return minutes + " : " + seconds + " : " + milliseconds;
 	}
 
 	this.started = false;
-	this.start = () => {
-		if (!this.started) {
+	this.start = function () {
+		if (!_this.started) {
 			interval = setInterval(update, 100);
 			offset = Date.now();
-			this.started = true;
+			_this.started = true;
 		}
 	};
-	this.stop = () => {
-		if(this.started) {
+	this.stop = function () {
+		if (_this.started) {
 			clearInterval(interval);
 			interval = null;
-			this.started = false;
+			_this.started = false;
 		}
 	};
-	this.reset = () => {
+	this.reset = function () {
 		time = 0;
 	};
 }
 
-let watch = new clock();
+var watch = new clock();
 watch.start();
-
