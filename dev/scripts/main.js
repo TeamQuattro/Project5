@@ -34,6 +34,7 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	});
 }
 
+
 booksMovies.getData = function(){
 	$.ajax({
 		url: 'https://www.googleapis.com/books/v1/volumes',
@@ -51,7 +52,8 @@ booksMovies.getData = function(){
 		console.log('whatever 2asdasd');
 
 	})
-}
+};
+
 
 booksMovies.displayData = function() {
 };
@@ -63,6 +65,7 @@ booksMovies.init = function (){
 	console.log ('This works');
 	booksMovies.getData("Harry Potter");
 	booksMovies.getMovieInfo("Harry Potter");
+
 };
 
 $(function(){
