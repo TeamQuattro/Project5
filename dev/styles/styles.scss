@@ -1,4 +1,11 @@
-body {
-	background: pink;
-	color: white;
-}
+@import "partials/setup";
+@import "partials/variables";
+
+// 
+@import "partials/mixins";
+@import "partials/global";
+
+// Semantic Structure
+@import "partials/nav";
+@import "partials/header";
+@import "partials/footer";
