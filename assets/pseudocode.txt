@@ -10,9 +10,9 @@
 	// (if no movie exists / can be found - do something - but we will have autocomplete to avoid this problem)
 // On submit: Searches the TMDB database for movies with the same title
 // Displays list of 4 movie possibilities. User clicks on the movie they want.
-// Return one book that matches the movie (maybe top result / index 0 of the Google Books response)
+// Connect to Google Books API and return one book that matches the movie (maybe top result / index 0 of the Google Books response)
+// also look at page count of book to determine length
 
-// Connect to a book API (Google Books) to determine length of book (depends on API data)
 // Also display a paragraph (of 100 words) for user to time themselves reading
 // Timer on the designated paragraph. User can hit start to begin, and then stop once they finish reading it.
 // When click on start, timer starts (visible to user)
