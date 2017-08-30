@@ -16,7 +16,6 @@ function clock() {
 	function delta() {
 		var now = Date.now();
 		var timePassed = offset - now;
-		offset = now;
 		return timePassed;
 	}
 	function timeFormat(timeInMilliseconds) {
