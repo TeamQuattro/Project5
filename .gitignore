@@ -2,4 +2,5 @@ node_modules
 public/styles/style.css
 public/scripts/main.js
 public/scripts/stopwatch.js
+*.psd
 .DS_Store
