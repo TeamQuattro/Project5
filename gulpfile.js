@@ -25,7 +25,7 @@ gulp.task("scripts", () => {
 // a task to watch all of my other tasks
 gulp.task("watch", () => {
 	gulp.watch("./dev/styles/**/*.scss", ["styles"]);
-	gulp.watch("./dev/scripts/main.js", ["styles"]);
+	gulp.watch("./dev/scripts/main.js", ["scripts"]);
 });
 
 // a default task
