@@ -3,7 +3,7 @@ const booksMovies = {};
 //API keys
 booksMovies.movieKey = "b8b83ba71713f763aef645ce0a40da06";
 booksMovies.baseUrl = "https://www.googleapis.com/books/v1/volumes";
-booksMovies.key = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
+booksMovies.bookKey = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
 
 
 const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
@@ -18,6 +18,14 @@ const paragraph = "We’re buzzing in our pews, the electricity of raw gossip fl
 // 	});
 // }
 
+//Handling submit function
+const handleSubmit = (e) => {
+	e.preventDefault();
+	let movies = $(".queryInput").val();
+	console.log(movies);
+}
+
+
 //get user movie information
 booksMovies.getMovieInfo = (userMovieChoice) => {
 	$.ajax({
@@ -29,48 +37,48 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 			query: userMovieChoice,
 			include_adult: false
 		}
-	}).then((res) => {
-		console.log(res);
 	});
 }
 
-
-booksMovies.getData = function(){
+//get book information
+booksMovies.getData = () => {
 	$.ajax({
-		url: 'https://www.googleapis.com/books/v1/volumes',
-		method: 'GET',
-		dataType: 'json',
+		url: "https://www.googleapis.com/books/v1/volumes",
+		method: "GET",
+		dataType: "json",
 		data: {
-			key: booksMovies.key,
-			format: 'json',
-			q: 'jurassic park'
+			key: booksMovies.Bookkey,
+			format: "json",
+			q: "jurassic park"
 		}
 	}).then(function(res){
-		console.log('test is working');
+		console.log("test is working");
 		booksMovies.bookTitle = res.items[0].volumeInfo.title;
 		console.log(booksMovies.bookTitle);
-		console.log('whatever 2asdasd');
-
+		console.log("whatever 2asdasd");
 	})
 };
 
 
-booksMovies.displayData = function() {
+booksMovies.displayData = () => {
 };
 
 booksMovies.events = function() {
 };
 
 booksMovies.init = function (){
-	console.log ('This works');
-	booksMovies.getData("Harry Potter");
-	booksMovies.getMovieInfo("Harry Potter");
-
+	// console.log ('This works');
+	// booksMovies.getData("Harry Potter");
+	// booksMovies.getMovieInfo("Harry Potter");
+	booksMovies.events();
 };
 
-$(function(){
-  booksMovies.init();
-});
+
+booksMovies.events = () => {
+	$("form").on("submit", handleSubmit);
+}
+
+$(booksMovies.init);
 
 // Notes on developer:
 // Use double quotes
