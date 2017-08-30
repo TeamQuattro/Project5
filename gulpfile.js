@@ -14,7 +14,7 @@ gulp.task("styles", () => {
 
 // a task to compile our javascript
 gulp.task("scripts", () => {
-	return gulp.src("./dev/scripts/main.js")
+	return gulp.src("./dev/scripts/**/*.js")
 	// also can use "glob pattern" for src .dev/scripts/**/*.js
 	.pipe(babel({
 		presets: ["es2015"]
@@ -25,7 +25,7 @@ gulp.task("scripts", () => {
 // a task to watch all of my other tasks
 gulp.task("watch", () => {
 	gulp.watch("./dev/styles/**/*.scss", ["styles"]);
-	gulp.watch("./dev/scripts/main.js", ["scripts"]);
+	gulp.watch("./dev/scripts/**/*.js", ["scripts"]);
 });
 
 // a default task
