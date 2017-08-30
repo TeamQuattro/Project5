@@ -20,7 +20,6 @@ booksMovies.getData = function(query) {
 			console.log(res);
 			booksMovies.bookTitle = res.items[0].volumeInfo.title;
 		});
-	};
 };
 
 booksMovies.displayData = function() {
