@@ -55,21 +55,21 @@ booksMovies.getData = () => {
 };
 
 // autocomplete function
-marvelApp.autocomplete = (sourceList) => {
-	$("#search").autocomplete({
-		minLength: 4,
-		source: marvelApp[sourceList],
-		focus: function(event, ui) {
-			$("#search").val(ui.item.label);
-				return false;
-		},
-		select: function(event, ui) {
-			$("#search").val(ui.item.label);
-			$("#id-box").val(ui.item.value);
-				return false;
-		}
-	});
-};
+// marvelApp.autocomplete = (sourceList) => {
+// 	$("#search").autocomplete({
+// 		minLength: 4,
+// 		source: marvelApp[sourceList],
+// 		focus: function(event, ui) {
+// 			$("#search").val(ui.item.label);
+// 				return false;
+// 		},
+// 		select: function(event, ui) {
+// 			$("#search").val(ui.item.label);
+// 			$("#id-box").val(ui.item.value);
+// 				return false;
+// 		}
+// 	});
+// };
 
 booksMovies.displayData = () => {
 };
