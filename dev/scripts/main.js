@@ -34,8 +34,6 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	});
 }
 
-URL to see Google Books API data: https://www.googleapis.com/books/v1/volumes?q=search+terms?format=json
-
 booksMovies.getData = function(){
 	$.ajax({
 		url: 'https://www.googleapis.com/books/v1/volumes',
