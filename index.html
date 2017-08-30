@@ -79,9 +79,14 @@
 			<h1>01</h1>
 			<h2>Calculating average reading speed</h2>
 			<h3>Read the passage on the left and time yourself</h3>
-			{00m 00s}
-			<input type="submit" class="reset" value="Reset" id="reset">
-			<input type="submit" class="startStop" value="Start / Stop" id="startStop">
+
+			<h1>Stopwatch</h1>
+			<h2>Vanilla JavaScript Stopwatch</h2>
+			<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+			<button id="button-start">Start</button>
+			<button id="button-stop">Stop</button>
+			<button id="button-reset">Reset</button>
+
 		</div>
 	</div>
 </section>
@@ -116,13 +121,13 @@
 		<div>
 			<div class="resultsReadSpeed">
 				<p>Your average reading speed</p>
-				<p>{Reading Speed Number goes here}</p>
+				<p class="userReadingSpeed">{Reading Speed Number goes here}</p>
 				<p>words / minute</p>
 				<p>(slightly slower than the average of 23 words/minute)</p>
 			</div>
 			<div class="daysToRead">
 				<p>It will take you</p>
-				<p>{Number of day to read here}</p>
+				<p class="userDaysToRead">{Number of day to read here}</p>
 				<p>days to finish the book</p>
 				<p>(slightly slower than the average of 23 words/minute)</p>
 			</div>
@@ -136,34 +141,9 @@
 	</div>
 </section>
 
-<main>
+<footer>
 	<div class="wrapper">
-		<h2>Main Section</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio accusantium sint perspiciatis eius sequi magni pariatur labore dignissimos assumenda libero facere voluptate corrupti aut explicabo, ratione sapiente voluptatem fuga itaque nobis quis, minus omnis dicta, numquam! Possimus, recusandae? Est consectetur repellat doloribus, optio velit amet dicta, excepturi incidunt voluptatum quae eius officiis odit nobis nulla veritatis voluptatibus quasi aut voluptate nisi omnis sed commodi fuga. Qui ipsam delectus pariatur quibusdam, eum, cupiditate maiores quam natus et dignissimos dolorum, itaque. Ducimus officia asperiores, dolorem minus atque reiciendis quibusdam, nihil suscipit quae vitae accusamus optio magni velit assumenda incidunt, maiores dolores dolor?</p>
-		<ul>
-			<li>List One</li>
-			<li>List Two</li>
-			<li>List Three</li>
-		</ul>
-	</div>
-</main>
-
-<section id="stopwatch">
-	<h3>00 : 00 : 000</h3>
-	<button id="stopwatchToggle">Start</button>
-	<button id="stopwatchReset">Reset</button>
-</section>
-
-<section>	
-	<div class="wrapper">
-		<h2>Section</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae quas magni iusto, sequi, a repellat animi. Excepturi similique minima dolore itaque ea dicta delectus neque molestias pariatur aliquam ipsa modi magnam perferendis a nulla sapiente error, consectetur repellat molestiae! Veritatis magni quam reiciendis autem expedita laudantium, corporis officia possimus sed excepturi delectus aspernatur, explicabo vel. Quasi minus ducimus tenetur quis ipsa provident magni suscipit consequuntur laudantium, consectetur dolorem quisquam mollitia optio commodi, eius, blanditiis. Delectus dolorum, repellendus doloribus odit qui.</p>
-	</div>
-</section>
-
-<footer><div class="wrapper">
-	<h2>Footer</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dicta dolore quas ullam nisi consectetur nostrum fugit dolorum placeat molestias quisquam corporis temporibus eum veniam voluptatibus eius vero corrupti, rem.</p>
+	
 	</div>
 </footer>
 
