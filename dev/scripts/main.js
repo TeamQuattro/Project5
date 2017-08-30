@@ -35,40 +35,57 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 }
 
 
-booksMovies.getData = function(){
+booksMovies.getData = () => {
 	$.ajax({
-		url: 'https://www.googleapis.com/books/v1/volumes',
-		method: 'GET',
-		dataType: 'json',
+		url: "https://www.googleapis.com/books/v1/volumes",
+		method: "GET",
+		dataType: "json",
 		data: {
 			key: booksMovies.key,
-			format: 'json',
-			q: 'jurassic park'
+			format: "json",
+			q: "jurassic park"
 		}
-	}).then(function(res){
-		console.log('test is working');
+	}).then((res) => {
+		console.log("test is working");
 		booksMovies.bookTitle = res.items[0].volumeInfo.title;
 		console.log(booksMovies.bookTitle);
-		console.log('whatever 2asdasd');
+		console.log("whatever 2asdasd");
 
 	})
 };
 
-
-booksMovies.displayData = function() {
+// autocomplete function
+marvelApp.autocomplete = (sourceList) => {
+	$("#search").autocomplete({
+		minLength: 4,
+		source: marvelApp[sourceList],
+		focus: function(event, ui) {
+			$("#search").val(ui.item.label);
+				return false;
+		},
+		select: function(event, ui) {
+			$("#search").val(ui.item.label);
+			$("#id-box").val(ui.item.value);
+				return false;
+		}
+	});
 };
 
-booksMovies.events = function() {
+booksMovies.displayData = () => {
 };
 
-booksMovies.init = function (){
-	console.log ('This works');
+booksMovies.events = () => {
+};
+
+booksMovies.init = () => {
+	console.log ("This works");
 	booksMovies.getData("Harry Potter");
 	booksMovies.getMovieInfo("Harry Potter");
 
 };
 
-$(function(){
+
+$(() => {
   booksMovies.init();
 });
 
