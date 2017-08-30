@@ -1,57 +1,61 @@
-console.log("hello");
+// Stopwatch by Cathy Dutton 
+// https://codepen.io/cathydutton/pen/GBcvo
 
-function clock () {
-	var time = 0;
-	var offset;
-	var interval;
+window.onload = function () {
+  
+  var seconds = 0; 
+  var tens = 0; 
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
 
-	function update() {
-		time += delta();
-		var timeFormatted = timeInMilliseconds(time);
-	}
-	function delta() {
-		var now = Date.now();
-		var timePassed = offset - now;
-		offset = now;
-		return timePassed;
-	}
-	function timeFormat(timeInMilliseconds) {
-		var time = new Date(timeInMilliseconds);
-		var minutes = time.getMinutes().toString();
-		var seconds = time.getSeconds().toString;
-		var milliseconds = time.getMilliseconds().toString;
-		if (minutes < 2) {
-			minutes = "0" + minutes;
-		}
-		if (seconds < 2) {
-			seconds = "0" + seconds;
-		}
-		if (milliseconds < 3) {
-			milliseconds = "0" + milliseconds;
-		}
-		return (`${minutes} : ${seconds} : ${milliseconds}`);
-	}
+  buttonStart.onclick = function() {
+     clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+  
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+       console.log (seconds)
+       var totalTime = seconds
+  }
 
-	this.started = false;
-	this.start = () => {
-		if (!this.started) {
-			interval = setInterval(update, 100);
-			offset = Date.now();
-			this.started = true;
-		}
-	};
-	this.stop = () => {
-		if(this.started) {
-			clearInterval(interval);
-			interval = null;
-			this.started = false;
-		}
-	};
-	this.reset = () => {
-		time = 0;
-	};
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    appendTens.innerHTML = tens;
+  	appendSeconds.innerHTML = seconds;
+  }
+  
+  function startTimer () {
+    tens++; 
+    
+    if(tens < 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+  
+  }
+  
+
 }
-
-let watch = new clock();
-watch.start();
-
