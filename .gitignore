@@ -3,4 +3,5 @@ public/styles/style.css
 public/scripts/main.js
 public/scripts/stopwatch.js
 *.psd
+design_dev_ignore_me
 .DS_Store
