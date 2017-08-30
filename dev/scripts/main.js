@@ -1,26 +1,33 @@
 const booksMovies = {};
+booksMovies.baseUrl = "https://www.googleapis.com/books/v1/volumes";
 booksMovies.key = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
+
 
 const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
 
 
 // URL to see Google Books API data: https://www.googleapis.com/books/v1/volumes?q=search+terms?format=json
 
-booksMovies.getData = function(query) {
-		$.ajax({
-			url: "https://www.googleapis.com/books/v1/volumes",
-			method: "GET",
-			dataType: "json",
-			data: {
-				key: booksMovies.key,
-				format: 'json',
-				q: query
-			}
-		}).then(function(res) {
-			console.log(res);
-			booksMovies.bookTitle = res.items.volumeInfo.title;
-		});
+
+booksMovies.getData = function(){
+	$.ajax({
+		url: 'https://www.googleapis.com/books/v1/volumes',
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			key: booksMovies.key,
+			format: 'json',
+			q: 'jurassic park'
+		}
+	}).then(function(res){
+		console.log('test is working');
+		booksMovies.bookTitle = res.items[0].volumeInfo.title;
+		console.log(booksMovies.bookTitle);
+		console.log('whatever 2asdasd');
+
+	})
 };
+
 
 booksMovies.displayData = function() {
 };
@@ -30,7 +37,6 @@ booksMovies.events = function() {
 
 booksMovies.init = function (){
 	console.log ('This works');
-	booksMovies.getData("Lord of the Flies");
 };
 
 $(function(){
