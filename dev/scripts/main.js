@@ -1,10 +1,38 @@
 const booksMovies = {};
+
+//API keys
+booksMovies.movieKey = "b8b83ba71713f763aef645ce0a40da06";
 booksMovies.key = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
 
 const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
 
 
-// URL to see Google Books API data: https://www.googleapis.com/books/v1/volumes?q=search+terms?format=json
+//Get user's movie input
+// bookMovies.getUserMovie = () => {
+// 	$("form").on("submit", function(e) {
+// 		e.preventDefault();
+// 		let userMovieChoice = $("input[***the name of the submit button***]").val();
+// 		bookMovies.getMovieInfo(userMovieChoice);
+// 	});
+// }
+
+//get user movie information
+booksMovies.getMovieInfo = (userMovieChoice) => {
+	$.ajax({
+		url: "https://api.themoviedb.org/3/search/movie",
+		method: "GET",
+		dataType: "jsonp",
+		data: {
+			api_key: booksMovies.movieKey,
+			query: userMovieChoice,
+			include_adult: false
+		}
+	}).then((res) => {
+		console.log(res);
+	});
+}
+
+URL to see Google Books API data: https://www.googleapis.com/books/v1/volumes?q=search+terms?format=json
 
 booksMovies.getData = function(query) {
 		$.ajax({
@@ -31,11 +59,11 @@ booksMovies.events = function() {
 booksMovies.init = function (){
 	console.log ('This works');
 	booksMovies.getData("Harry Potter");
+	booksMovies.getMovieInfo("Harry Potter");
 };
 
 $(function(){
   booksMovies.init();
-
 });
 
 // Notes on developer:
@@ -46,7 +74,7 @@ $(function(){
 // PSEUDOCODE:
 // Input field where users input name of a movie (required)
 // (if no movie exists / can be found - do something - but we will have autocomplete to avoid this problem)
-// On submit: Searches the IMDB database for movies with the same title
+// On submit: Searches the TMDB database for movies with the same title
 // Also look at the genres that the movie title is associated with
 // Return list of X (4) desired books
 // Connect to a book API (Google Books) to determine length of book (depends on API data)
@@ -80,3 +108,4 @@ $(function(){
 // A paragraph is displayed to the user that shows the results
 // Also included is an average result (so user can compare their results to the average person)
 // (Disclaimer: Numbers may be slightly inaccurate)
+
