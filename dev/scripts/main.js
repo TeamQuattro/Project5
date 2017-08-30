@@ -19,10 +19,11 @@ const paragraph = "We’re buzzing in our pews, the electricity of raw gossip fl
 // }
 
 //Handling submit function
-const handleSubmit = (e) => {
+let handleSubmit = (e) => {
 	e.preventDefault();
-	let movies = $(".queryInput").val();
-	console.log(movies);
+	let userInput = $(".queryInput").val();
+	booksMovies.getMovieInfo(userInput);
+	console.log(userInput);
 }
 
 
@@ -31,13 +32,15 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	$.ajax({
 		url: "https://api.themoviedb.org/3/search/movie",
 		method: "GET",
-		dataType: "jsonp",
+		dataType: "json",
 		data: {
 			api_key: booksMovies.movieKey,
 			query: userMovieChoice,
 			include_adult: false
 		}
-	});
+	}).then((res) => {
+		console.log(res);
+	})
 }
 
 
@@ -60,47 +63,17 @@ booksMovies.getData = () => {
 	})
 };
 
-// autocomplete function
-// marvelApp.autocomplete = (sourceList) => {
-// 	$("#search").autocomplete({
-// 		minLength: 4,
-// 		source: marvelApp[sourceList],
-// 		focus: function(event, ui) {
-// 			$("#search").val(ui.item.label);
-// 				return false;
-// 		},
-// 		select: function(event, ui) {
-// 			$("#search").val(ui.item.label);
-// 			$("#id-box").val(ui.item.value);
-// 				return false;
-// 		}
-// 	});
-// };
-
 booksMovies.displayData = () => {
 };
 
 booksMovies.events = () => {
-};
-
-
-booksMovies.init = function (){
-	// console.log ('This works');
-	// booksMovies.getData("Harry Potter");
-	// booksMovies.getMovieInfo("Harry Potter");
-	booksMovies.events();
-};
-
-
-booksMovies.events = () => {
-	$("form").on("submit", handleSubmit);
+	$(".movieQuery").on("submit", handleSubmit)
 }
 
 $(booksMovies.init);
 booksMovies.init = () => {
 	console.log ("This works");
-	booksMovies.getData("Harry Potter");
-	booksMovies.getMovieInfo("Harry Potter");
+	booksMovies.events();
 };
 
 
