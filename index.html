@@ -10,10 +10,11 @@
 <body>	
 <header>
 	<div class="wrapper">
-		<h1>Goodreads</h1>
+		<h1>Movies and Books</h1>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
 		<form class="movieQuery">
 			<div>
-				<input type="text" class="queryInput">
+				<input type="text" class="queryInput" placeholder="search by movie title">
 			</div>
 			<div class="submitBtn">
 				<input type="submit" class="querySubmit" value="Submit" id="go">
@@ -22,67 +23,107 @@
 	</div>
 </header>
 
-<section class="movieInfo">
-	<div class="wrapper">
-		<div class="moviePoster">
-			{Movie Poster Goes Here}
+<section class="bookInfo">
+	<div class="wrapper clearfix">
+		<div class="bookPoster">
+			{Book Image Goes Here}
 		</div>
-		<div class="movieDetails">
-			<div class="movieTitle">
-				{Movie Title Goes Here}
+		<div class="bookDetails">
+			<div class="bookTitle">
+				<h2>Book Title Goes Here</h3>
 			</div>
-			<div class="movieYear">
-				{Movie Year Goes Here}
+			<div class="bookYear">
+				<p>{Book Year Goes Here}</p>
 			</div>
-			<div class="movieOverview">
-				<h2>Overview</h2>
-				{Movie Overview Goes Here}
+			<div class="bookOverview">
+				<h4>Overview</h4>
+				<p>{Book Overview Goes Here}</p>
 			</div>
-			<div class="movieCast">
-				<h2>Cast</h2>
-				{Movie Cast Goes Here}
+			<div class="bookCast">
+				<h4>Reviews</h4>
+				<p>{Book Review info? Goes Here}</p>
 			</div>
-			<div class="movieScore">
-				{Movie User Score Goes Here}<br>
-				User Score
+			<div class="bookScore">
+				<p>{Book rating Goes Here}<br>
+				User Score</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="bookInfo">
-	<div class="wrapper">
-		<h1>Related books based on your movie search</h1>
-		<div class="bookResults"> <!-- Row of book results -->
-			<div class="book"> <!-- individual book result -->
-				<div class="bookPoster">
-					{Book Image Goes Here}
+<section class="movieInfo">
+	<div class="wrapper clearfix">
+		<h2>Related books based on your movie search</h2>
+		<div class="movieResults"> <!-- Row of book results -->
+			<div class="movie"> <!-- individual book result -->
+				<div class="moviePoster">
+					{Movie Image Goes Here}
 				</div>
-				<div class="bookTitle">
-					{Book Title Goes Here}
+				<div class="movieTitle">
+					{Movie Title Goes Here}
 				</div>
-				<div class="bookAuthor">
-					{Book Author Goes Here}
+				<div class="movieDirector">
+					{Movie Director Goes Here}
 				</div>
 				<button>Select</button>
 			</div>
 		</div>
+		<div class="movieResults"> <!-- Row of book results -->
+			<div class="movie"> <!-- individual book result -->
+				<div class="moviePoster">
+					{Movie Image Goes Here}
+				</div>
+				<div class="movieTitle">
+					{Movie Title Goes Here}
+				</div>
+				<div class="movieDirector">
+					{Movie Director Goes Here}
+				</div>
+				<button>Select</button>
+			</div>
+		</div>
+		<div class="movieResults"> <!-- Row of book results -->
+			<div class="movie"> <!-- individual book result -->
+				<div class="moviePoster">
+					{Movie Image Goes Here}
+				</div>
+				<div class="movieTitle">
+					{Movie Title Goes Here}
+				</div>
+				<div class="movieDirector">
+					{Movie Director Goes Here}
+				</div>
+				<button>Select</button>
+			</div>
+		</div>
+		<div class="movieResults"> <!-- Row of book results -->
+			<div class="movie"> <!-- individual book result -->
+				<div class="moviePoster">
+					{Movie Image Goes Here}
+				</div>
+				<div class="movieTitle">
+					{Movie Title Goes Here}
+				</div>
+				<div class="movieDirector">
+					{Movie Director Goes Here}
+				</div>
+				<button>Select</button>
+			</div>
+		</div>
+
 	</div>
 </section>
 
 <section class="stepOneStopwatch">
-	<div class="wrapper">
+	<div class="wrapper clearfix">
 		<div class="readingVerbiage">
-			{Reading Paragraph Goes Here}
+			<p>{Reading Paragraph Goes Here} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus distinctio cum beatae provident explicabo ratione accusamus est, doloremque pariatur aperiam nemo totam quisquam perspiciatis molestiae ab perferendis consectetur, aspernatur reiciendis.</p>
 		</div>
-		<div>
-			<h1>01</h1>
-			<h2>Calculating average reading speed</h2>
-			<h3>Read the passage on the left and time yourself</h3>
-
-			<h1>Stopwatch</h1>
-			<h2>Vanilla JavaScript Stopwatch</h2>
-			<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+		<div class="calculatingSpeed">
+			<span class="steps">01</span>
+			<h3>Calculating average reading speed</h3>
+			<p>Read the passage on the left and time yourself</p>
+			<div><span id="seconds">00</span><span class="watch">m</span><span id="tens">00</span><span class="watch">s</span></div>
 			<button id="button-start">Start</button>
 			<button id="button-stop">Stop</button>
 			<button id="button-reset">Reset</button>
@@ -92,11 +133,11 @@
 </section>
 
 <section class="freeTimeQuery">
-	<div class="wrapper">
-		<div>
-			<h1>02</h1>
-			<h2>How much free time do you have to read everyday?</h2>
-			<h3>While you commute, when you have a break, after dinner etc ...</h3>
+	<div class="wrapper clearfix">
+		<div class="freeTimeContainer">
+			<span class="steps">02</span>
+			<h3>How much free time do you have to read everyday?</h3>
+			<h4>While you commute, when you have a break, after dinner etc ...</h4>
 		</div>
 		<div>
 			<form class="freeTimeInput">
@@ -116,22 +157,22 @@
 
 <section class="results">
 	<div class="wrapper">
-		<h1>Results</h1>
-		<h2>Based on your selection of the movie {Harry Potter} ..</h2>
-		<div>
-			<div class="resultsReadSpeed">
+		<h2>Results</h2>
+		<h3>Based on your selection of the movie {Harry Potter} ..</h3>
+		<div class="clearfix">
+			<div class="resultsBox resultsReadSpeed">
 				<p>Your average reading speed</p>
 				<p class="userReadingSpeed">{Reading Speed Number goes here}</p>
 				<p>words / minute</p>
 				<p>(slightly slower than the average of 23 words/minute)</p>
 			</div>
-			<div class="daysToRead">
+			<div class="resultsBox daysToRead">
 				<p>It will take you</p>
 				<p class="userDaysToRead">{Number of day to read here}</p>
 				<p>days to finish the book</p>
 				<p>(slightly slower than the average of 23 words/minute)</p>
 			</div>
-			<div class="moreStats">
+			<div class="resultsBox moreStats">
 				<p>More random stats</p>
 				<p>{Number goes here}</p>
 				<p>words / minute</p>

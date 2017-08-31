@@ -5,16 +5,20 @@ body, html {
 
 body {color:#555;}
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h5, h6 {
 	font-weight: 700;
 	margin: 0;
 	font-style: italic;
 	font-family: $secondaryFont;
 }
 
-h1 {font-size: 4rem; color: $primaryColor;}
-h2 {font-size: 3rem; color: $secondaryColor;}
-h3 {}
+h1 {font-size: 5rem; color: white; text-shadow: 2px 2px rgba(0,0,0,0.75);}
+h2 {font-size: 2.5rem; color: white;}
+h3 {font-size: 1.6rem; font-family: $primaryFont; color: white; font-weight: 300;}
+
+h4 {
+	font-size: 1.6rem; color: white;
+}
 
 a {
 	color: $primaryColor;
@@ -33,6 +37,7 @@ img {
 .wrapper {
 	max-width: 1170px;
 	margin: 0 auto;
+	border: 2px solid blue;
 	@include respond-to ('medium') {
 		padding: 0 15px;
 	}
