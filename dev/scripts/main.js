@@ -32,8 +32,10 @@ window.onload = function () {
     buttonStop.onclick = function() {
        clearInterval(Interval);
        // console.log (seconds);
+       // debugger;
        var totalTime = seconds;
-       booksMovies.displayData(totalTime)
+       window.booksMovies.totalTime = totalTime;
+       // booksMovies.displayData(totalTime);
   }
 
   buttonReset.onclick = function() {
@@ -81,10 +83,12 @@ let handleSubmit = (e) => {
 let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
-		let freeTimeHours = $(".freeTimeHours").val();
-		let freeTimeMinutes = $(".freeTimeMinutes").val();
-		console.log(freeTimeHours);
-		console.log(freeTimeMinutes);
+		// let freeTimeHours = $(".freeTimeHours").val();
+		// let freeTimeMinutes = $(".freeTimeMinutes").val();
+		// console.log(freeTimeHours);
+		// console.log(freeTimeMinutes);
+		booksMovies.displayData(booksMovies.totalTime);
+
 		// console.log("success");
 	});
 }
@@ -111,23 +115,22 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 booksMovies.displayMovieInfo = (movieResults) => {
 		// console.log(movieResults);
 		// $().empty();
-		movieResults.forEach((movieYear) => {
-			movieYear = movieYear.release_date.split("-");
-			// return
-		});
-	// for (let i = 0; i < 4; i++) {
-	// 	// 	movie backdrop path
-	// 	let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
-	// 	// creating and adding movie poster img to page
-	// 	let movImage = `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`;
-	// 	$(".moviePoster").html(`<img src="${movImage}" alt="movie poster of user's choice">`);
-	// 	//creating h2 for movie title and adding to page
-	// 	let movTitle = $("<h2>").text(movieResults[i].title);
-	// 	$(".movieTitle").html(movTitle);
-		// let movYear = $("<h3>").text(movieResults[i].)
-		// let movContainer = $("<div>").addClass('movie').append(`<img src=${movImage} alt="movie poster of user's choice"`, movTitle);
-		// $(".movieResults").append(movContainer); 
-	// }
+		
+		for (let i = 0; i < 4; i++) {
+			// 	movie backdrop path
+			let movBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
+			// movie poster
+			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
+			//movie title <h2> and adding to page
+			let movTitle = $("<h2>").text(movieResults[i].title);
+			//movie year
+			let movYear = movieResults[i].release_date.split("-");
+			movYear = $("<h3>").text(movYear[0]);
+			// container for movies 
+			let movContainer = $("<div>").addClass("movie").append(movImage, movTitle, movYear);
+			//append into movie results class
+			$('.movieResults').append(movContainer);
+		}
 }
 
 //get book information
@@ -161,6 +164,7 @@ booksMovies.getData = () => { // <-- query parameter
 		console.log(`Book description is ${description}`);
 		console.log(`Book pageCount is ${pageCount}`);
 		console.log(`Book wordTotal is ${wordTotal}`);
+		booksMovies.wordTotal = wordTotal;
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
 
@@ -177,9 +181,9 @@ booksMovies.getData = () => { // <-- query parameter
 
 
 booksMovies.displayData = function(totalTime) {
-	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
-	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
-	var userResults = ($(secondsPerBook) / 60) / $(userFreeTime);
+	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
+	var userFreeTime = parseInt($(".freeTimeHours").val() * 60) + parseInt($(".freeTimeMinutes").val());
+	var userResults = (secondsPerBook / 60) / userFreeTime;
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
 	console.log(userResults);
@@ -187,7 +191,7 @@ booksMovies.displayData = function(totalTime) {
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
-	booksMovies.displayData();
+	// booksMovies.displayData();
 
 };
 
