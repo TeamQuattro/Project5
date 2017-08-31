@@ -78,7 +78,7 @@ booksMovies.getData = () => { // <-- query parameter
 			key: booksMovies.Bookkey,
 			format: "json",
 			// orderBy: "relevance",
-			q: 'harry potter goblet' // <-- query parameter
+			q: 'hunger games' // <-- query parameter
 		}
 	}).then((res) => { // <-- Then should be based on selected book from list of arrays
 		console.log(res);
@@ -103,8 +103,11 @@ booksMovies.getData = () => { // <-- query parameter
 		console.log(`Book image is ${bookImageLarge}`);
 
 		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
-		$('.bookTitle').html(`<h1>${bookTitle}</h1><p>${authors}</p>`); 
+		$('.bookTitle').html(`<h1>${bookTitle}</h1>`); 
+		$('.bookAuthor').html(`<p>${authors}</p>`); 
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
+
+		$('.readingVerbiage').html(${paragraph});
 
 	});
 };
