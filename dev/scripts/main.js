@@ -35,7 +35,7 @@ window.onload = function () {
        var totalTime = seconds;
        booksMovies.displayData(totalTime)
   }
-  
+
   buttonReset.onclick = function() {
      clearInterval(Interval);
     tens = "00";
@@ -175,6 +175,7 @@ booksMovies.getData = () => { // <-- query parameter
 };
 
 
+
 booksMovies.displayData = function(totalTime) {
 	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
@@ -186,14 +187,13 @@ booksMovies.displayData = function(totalTime) {
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
+	booksMovies.displayData();
 
 };
-
 
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
 	freeTimeTest();
-	// booksMovies.displayData();
 };
 
 
