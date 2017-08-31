@@ -47,17 +47,24 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
+		// console.log(movieResults);
 		// $().empty();
-	for (let i = 0; i < 4; i++) {
-		// 	movie backdrop path
-		let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
-		// creating and adding movie poster img to page
-		let movImage = `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`;
-		$(".moviePoster").html(`<img src="${movImage}" alt="movie poster of user's choice">`);
-		//creating h2 for movie title and adding to page
-		let movTitle = $('<h2>').text(movieResults[i].title);
-		$(".movieTitle").html(movTitle); 
-	}
+		movieResults.forEach((movie) => {
+			console.log(movie.release_date);
+		});
+	// for (let i = 0; i < 4; i++) {
+	// 	// 	movie backdrop path
+	// 	let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
+	// 	// creating and adding movie poster img to page
+	// 	let movImage = `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`;
+	// 	$(".moviePoster").html(`<img src="${movImage}" alt="movie poster of user's choice">`);
+	// 	//creating h2 for movie title and adding to page
+	// 	let movTitle = $("<h2>").text(movieResults[i].title);
+	// 	$(".movieTitle").html(movTitle);
+		// let movYear = $("<h3>").text(movieResults[i].)
+		// let movContainer = $("<div>").addClass('movie').append(`<img src=${movImage} alt="movie poster of user's choice"`, movTitle);
+		// $(".movieResults").append(movContainer); 
+	// }
 }
 
 //get book information
@@ -94,14 +101,14 @@ booksMovies.getData = () => { // <-- query parameter
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
 
-		$('.moviePoster').html(`<img src="${bookImageLarge}">`);
-		$('.movieTitle').html(`<h1>${bookTitle}</h1><p>${authors}</p>`); 
-		$('.movieOverview').html(`<h2>Overview</h2><p>${description}</p>`);
+		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
+		$('.bookTitle').html(`<h1>${bookTitle}</h1><p>${authors}</p>`); 
+		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
 
 	});
 };
 
-booksMovies.displayData = function(freeTimeTest) {
+booksMovies.displayData = function() {
 	var userReading = seconds;
 	var secondsPerPage = 2.75 * seconds;
 	var bookWords = pageCount * secondsPerPage;
