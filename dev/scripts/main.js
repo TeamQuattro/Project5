@@ -161,7 +161,7 @@ window.onload = function () {
        console.log (seconds);
        var totalTime = seconds;
   }
-
+  
   buttonReset.onclick = function() {
      clearInterval(Interval);
     tens = "00";
