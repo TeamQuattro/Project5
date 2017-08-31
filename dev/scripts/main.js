@@ -26,6 +26,17 @@ let handleSubmit = (e) => {
 	// console.log(userInput);
 }
 
+// Gets users free time submission
+let freeTimeTest = () => {
+	$(".freeTimeInput").on("submit", (e) => {
+		e.preventDefault();
+		let freeTimeHours = $(".freeTimeHours").val();
+		let freeTimeMinutes = $(".freeTimeMinutes").val();
+		console.log(freeTimeHours);
+		console.log(freeTimeMinutes);
+		// console.log("success");
+	});
+}
 
 //get user movie information
 booksMovies.getMovieInfo = (userMovieChoice) => {
@@ -105,7 +116,7 @@ booksMovies.displayData = function() {
 	var userReading = seconds;
 	var secondsPerPage = 2.75 * seconds;
 	var bookWords = pageCount * secondsPerPage;
-	var userFreeTime = (.freeTimeHours * 60) + .freeTimeMinutes;
+	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
 	var userResults = (bookWords / 60) / userFreeTime;
 	console.log(userReading);
 	console.log(secondsPerPage);
@@ -115,11 +126,14 @@ booksMovies.displayData = function() {
 };
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
-	$(".movieQuery").on("submit", handleSubmit)
-}
+	$(".movieQuery").on("submit", handleSubmit);
+
+};
+
 
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
+	freeTimeTest();
 };
 
 $(() => { // <-- DOCUMENT READY
