@@ -112,7 +112,6 @@ booksMovies.displayMovieInfo = (movieResults) => {
 		// console.log(movieResults);
 		// $().empty();
 		
-
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
 			let movBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
