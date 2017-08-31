@@ -130,7 +130,6 @@ booksMovies.events = () => { // <-- Events, ie on click / submit
 
 };
 
-
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
 	freeTimeTest();
