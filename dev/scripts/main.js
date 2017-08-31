@@ -115,24 +115,16 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			// 	movie backdrop path
 			let movBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
 			// movie poster
-			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`);
+			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
 			//movie title <h2> and adding to page
 			let movTitle = $("<h2>").text(movieResults[i].title);
-			// console.log(movTitle);
 			//movie year
 			let movYear = movieResults[i].release_date.split("-");
 			movYear = $("<h3>").text(movYear[0]);
-			// // container for movies 
+			// container for movies 
 			let movContainer = $("<div>").addClass("movie").append(movImage, movTitle, movYear);
-			// console.log(movContainer);
+			//append into movie results class
 			$('.movieResults').append(movContainer);
-
-
-		// 	$(".moviePoster").html(`<img src="${movImage}" alt="movie poster of user's choice">`);
-		// 	$(".movieTitle").html(movTitle);
-			// let movYear = $("<h3>").text(movieResults[i].)
-			// let movContainer = $("<div>").addClass('movie').append(`<img src=${movImage} alt="movie poster of user's choice"`, movTitle);
-			// $(".movieResults").append(movContainer); 
 		}
 }
 
