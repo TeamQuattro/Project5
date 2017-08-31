@@ -101,7 +101,7 @@ booksMovies.getData = () => { // <-- query parameter
 	});
 };
 
-booksMovies.displayData = function() {
+booksMovies.displayData = function(freeTimeTest) {
 	var userReading = seconds;
 	var secondsPerPage = 2.75 * seconds;
 	var bookWords = pageCount * secondsPerPage;
