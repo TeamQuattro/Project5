@@ -32,8 +32,10 @@ window.onload = function () {
     buttonStop.onclick = function() {
        clearInterval(Interval);
        // console.log (seconds);
+       // debugger;
        var totalTime = seconds;
-       booksMovies.displayData(totalTime)
+       window.booksMovies.totalTime = totalTime;
+       // booksMovies.displayData(totalTime);
   }
 
   buttonReset.onclick = function() {
@@ -81,10 +83,12 @@ let handleSubmit = (e) => {
 let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
-		let freeTimeHours = $(".freeTimeHours").val();
-		let freeTimeMinutes = $(".freeTimeMinutes").val();
-		console.log(freeTimeHours);
-		console.log(freeTimeMinutes);
+		// let freeTimeHours = $(".freeTimeHours").val();
+		// let freeTimeMinutes = $(".freeTimeMinutes").val();
+		// console.log(freeTimeHours);
+		// console.log(freeTimeMinutes);
+		booksMovies.displayData(booksMovies.totalTime);
+
 		// console.log("success");
 	});
 }
@@ -160,6 +164,7 @@ booksMovies.getData = () => { // <-- query parameter
 		console.log(`Book description is ${description}`);
 		console.log(`Book pageCount is ${pageCount}`);
 		console.log(`Book wordTotal is ${wordTotal}`);
+		booksMovies.wordTotal = wordTotal;
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
 
@@ -176,9 +181,9 @@ booksMovies.getData = () => { // <-- query parameter
 
 
 booksMovies.displayData = function(totalTime) {
-	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
-	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
-	var userResults = ($(secondsPerBook) / 60) / $(userFreeTime);
+	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
+	var userFreeTime = parseInt($(".freeTimeHours").val() * 60) + parseInt($(".freeTimeMinutes").val());
+	var userResults = (secondsPerBook / 60) / userFreeTime;
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
 	console.log(userResults);
@@ -186,7 +191,7 @@ booksMovies.displayData = function(totalTime) {
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
-	booksMovies.displayData();
+	// booksMovies.displayData();
 
 };
 
