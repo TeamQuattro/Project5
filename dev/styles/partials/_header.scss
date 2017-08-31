@@ -1,8 +1,15 @@
 header {
+	height: 100vh;
 	background-color: $primaryColor;
-	padding-top: 50px;
-	padding-bottom: 50px;
 	text-align: center;
+	position: relative;
+
+	.headerText {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
 	.queryInput {
 		width: 300px;
