@@ -80,7 +80,7 @@ booksMovies.getData = () => { // <-- query parameter
 		var categories = res.items[0].volumeInfo.categories[0];
 		var description = res.items[0].volumeInfo.description;
 		var pageCount = res.items[0].volumeInfo.pageCount;
-		var wordTotal = pageCount * 275
+		var wordTotal = pageCount * 275;
 		var bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
 		var bookImageSplit = bookImage.split("&zoom=1");
 		var bookImageLarge = bookImageSplit[0];
@@ -101,7 +101,7 @@ booksMovies.getData = () => { // <-- query parameter
 	});
 };
 
-booksMovies.displayData = (booksMovies.getData) => {
+booksMovies.displayData = function() {
 	var userReading = seconds;
 	var secondsPerPage = 2.75 * seconds;
 	var bookWords = pageCount * secondsPerPage;
