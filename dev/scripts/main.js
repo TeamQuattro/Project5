@@ -103,8 +103,11 @@ booksMovies.getData = () => { // <-- query parameter
 		console.log(`Book image is ${bookImageLarge}`);
 
 		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
-		$('.bookTitle').html(`<h1>${bookTitle}</h1><p>${authors}</p>`); 
+		$('.bookTitle').html(`<h1>${bookTitle}</h1>`); 
+		$('.bookAuthor').html(`<p>${authors}</p>`); 
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
+
+		$('.readingVerbiage').html(${paragraph});
 
 	});
 };
