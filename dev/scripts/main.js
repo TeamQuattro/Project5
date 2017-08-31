@@ -109,15 +109,17 @@ booksMovies.getData = () => { // <-- query parameter
 	});
 };
 
-booksMovies.displayData = function() {
-	var userReading = seconds;
-	var secondsPerPage = 2.75 * seconds;
-	var bookWords = pageCount * secondsPerPage;
+
+booksMovies.displayData = function(freeTimeTest) {
+	var userReading = totalTime;
+	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
+	// var bookWords = booksMovies.getData.pageCount * secondsPerPage;
+
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
 	var userResults = (bookWords / 60) / userFreeTime;
 	console.log(userReading);
-	console.log(secondsPerPage);
-	console.log(bookWords);
+	console.log(secondsPerBook);
+	// console.log(bookWords);
 	console.log(userFreeTime);
 	console.log(userResults);
 };
@@ -133,7 +135,68 @@ booksMovies.init = () => { // <-- INITIALIZING
 	freeTimeTest();
 };
 
+//STOPWATCH JS INCOMMING
+// Stopwatch by Cathy Dutton 
+// https://codepen.io/cathydutton/pen/GBcvo
+
+window.onload = function () {
+  
+  var seconds = 0; 
+  var tens = 0; 
+  var appendTens = document.getElementById("tens")
+  var appendSeconds = document.getElementById("seconds")
+  var buttonStart = document.getElementById('button-start');
+  var buttonStop = document.getElementById('button-stop');
+  var buttonReset = document.getElementById('button-reset');
+  var Interval ;
+
+  buttonStart.onclick = function() {
+     clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+  
+    buttonStop.onclick = function() {
+       clearInterval(Interval);
+       console.log (seconds);
+       var totalTime = seconds;
+  }
+
+  buttonReset.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    appendTens.innerHTML = tens;
+  	appendSeconds.innerHTML = seconds;
+  }
+  
+  function startTimer () {
+    tens++; 
+    
+    if(tens < 9){
+      appendTens.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      appendTens.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      appendSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      appendTens.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      appendSeconds.innerHTML = seconds;
+    }
+  }
+}
+
 $(() => { // <-- DOCUMENT READY
   booksMovies.init();
 });
+
 
