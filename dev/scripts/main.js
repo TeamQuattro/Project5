@@ -22,6 +22,7 @@ window.onload = function () {
   var buttonStop = document.getElementById('button-stop');
   var buttonReset = document.getElementById('button-reset');
   var Interval ;
+  // var totalTime;
 
   buttonStart.onclick = function() {
      clearInterval(Interval);
@@ -30,8 +31,9 @@ window.onload = function () {
   
     buttonStop.onclick = function() {
        clearInterval(Interval);
-       console.log (seconds);
+       // console.log (seconds);
        var totalTime = seconds;
+       booksMovies.displayData(totalTime)
   }
   
   buttonReset.onclick = function() {
@@ -173,16 +175,11 @@ booksMovies.getData = () => { // <-- query parameter
 };
 
 
-booksMovies.displayData = function() {
-	var userReading = totalTime;
-	console.log(totalTime);
+booksMovies.displayData = function(totalTime) {
 	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
-	// var bookWords = booksMovies.getData.pageCount * secondsPerPage;
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
-	var userResults = (bookWords / 60) / userFreeTime;
-	console.log(userReading);
+	var userResults = ($(secondsPerBook) / 60) / $(userFreeTime);
 	console.log(secondsPerBook);
-	// console.log(bookWords);
 	console.log(userFreeTime);
 	console.log(userResults);
 };
@@ -196,7 +193,7 @@ booksMovies.events = () => { // <-- Events, ie on click / submit
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
 	freeTimeTest();
-	booksMovies.displayData();
+	// booksMovies.displayData();
 };
 
 
