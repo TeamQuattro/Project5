@@ -51,12 +51,12 @@ booksMovies.displayMovieInfo = (movieResults) => {
 		// $().empty();
 		movieResults.forEach((movieYear) => {
 			movieYear = movieYear.release_date.split("-");
-			// return
-		});
-	// for (let i = 0; i < 4; i++) {
-	// 	// 	movie backdrop path
-	// 	let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
-	// 	// creating and adding movie poster img to page
+			console.log(movieYear[0]);
+			});
+	for (let i = 0; i < 4; i++) {
+		// 	movie backdrop path
+		// let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
+		// creating and adding movie poster img to page
 	// 	let movImage = `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`;
 	// 	$(".moviePoster").html(`<img src="${movImage}" alt="movie poster of user's choice">`);
 	// 	//creating h2 for movie title and adding to page
@@ -65,7 +65,7 @@ booksMovies.displayMovieInfo = (movieResults) => {
 		// let movYear = $("<h3>").text(movieResults[i].)
 		// let movContainer = $("<div>").addClass('movie').append(`<img src=${movImage} alt="movie poster of user's choice"`, movTitle);
 		// $(".movieResults").append(movContainer); 
-	// }
+	}
 }
 
 //get book information
