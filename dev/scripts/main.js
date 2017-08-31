@@ -107,7 +107,7 @@ booksMovies.getData = () => { // <-- query parameter
 		$('.bookAuthor').html(`<p>${authors}</p>`); 
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
 
-		$('.readingVerbiage').html(${paragraph});
+		$('.readingVerbiage').html(`${paragraph}`);
 
 	});
 };
