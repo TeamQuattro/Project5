@@ -114,7 +114,6 @@ booksMovies.displayData = function(freeTimeTest) {
 	var userReading = totalTime;
 	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
 	// var bookWords = booksMovies.getData.pageCount * secondsPerPage;
-
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
 	var userResults = (bookWords / 60) / userFreeTime;
 	console.log(userReading);
