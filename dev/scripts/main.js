@@ -46,7 +46,7 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 
 
 //get book information
-booksMovies.getData = (query) => {
+booksMovies.getData = () => { // <-- query parameter
 	$.ajax({
 		url: "https://www.googleapis.com/books/v1/volumes",
 		method: "GET",
@@ -54,12 +54,35 @@ booksMovies.getData = (query) => {
 		data: {
 			key: booksMovies.Bookkey,
 			format: "json",
-			q: query
+			// orderBy: "relevance",
+			q: 'harry potter goblet' // <-- query parameter
 		}
-	}).then((res) => {
+	}).then((res) => { // <-- Then should be based on selected book from list of arrays
 		console.log(res);
-		booksMovies.bookTitle = res.items[0].volumeInfo.title;
-		console.log(booksMovies.bookTitle);
+		var bookTitle = res.items[0].volumeInfo.title;
+		var subTitle = res.items[0].volumeInfo.subtitle;
+		var authors = res.items[0].volumeInfo.authors[0];
+		var categories = res.items[0].volumeInfo.categories[0];
+		var description = res.items[0].volumeInfo.description;
+		var pageCount = res.items[0].volumeInfo.pageCount;
+		var wordTotal = pageCount * 275
+		var bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
+		var bookImageSplit = bookImage.split("&zoom=1");
+		var bookImageLarge = bookImageSplit[0];
+		console.log(`Book Title is ${bookTitle}`);
+		console.log(`Book Subtitle is ${subTitle}`);
+		console.log(`Book Author is ${authors}`);
+		console.log(`Book category is ${categories}`);
+		console.log(`Book description is ${description}`);
+		console.log(`Book pageCount is ${pageCount}`);
+		console.log(`Book wordTotal is ${wordTotal}`);
+		console.log(`Book image is ${bookImage}`);
+		console.log(`Book image is ${bookImageLarge}`);
+
+		$('.moviePoster').html(`<img src="${bookImageLarge}">`);
+		$('.movieTitle').html(`<h1>${bookTitle}</h1><p>${authors}</p>`); 
+		$('.movieOverview').html(`<h2>Overview</h2><p>${description}</p>`);
+
 	});
 };
 
