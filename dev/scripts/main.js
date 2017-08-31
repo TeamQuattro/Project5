@@ -173,12 +173,14 @@ booksMovies.getData = () => { // <-- query parameter
 };
 
 
-booksMovies.displayData = function(freeTimeTest) {
-	console.log("displayData works!")
+
+booksMovies.displayData = function() {
 	var userReading = totalTime;
+	console.log(totalTime);
 	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
 	var bookWords = booksMovies.getData.pageCount * secondsPerPage;
 
+	// var bookWords = booksMovies.getData.pageCount * secondsPerPage;
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
 	var userResults = (bookWords / 60) / userFreeTime;
 	console.log(userReading);
@@ -196,6 +198,10 @@ booksMovies.events = () => { // <-- Events, ie on click / submit
 
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
+
+	freeTimeTest();
+	booksMovies.displayData();
+
 };
 
 
