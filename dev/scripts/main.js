@@ -103,7 +103,6 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	}).then((res) => {
 		let movieResults = res.results;
 		booksMovies.displayMovieInfo(movieResults);
-		booksMovies.getData(userMovieChoice); 
 	});
 }
 
@@ -122,15 +121,30 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			//movie year
 			let movYear = movieResults[i].release_date.split("-");
 			movYear = $("<h3>").text(movYear[0]);
+
+			//select movie button
+			let movSelect = $("<button>").addClass("movieSelect").text("select");
+
 			// container for movies 
-			let movContainer = $("<div>").addClass("movie").append(movImage, movTitle, movYear);
+			let movContainer = $("<div>").addClass("movie").append(movImage, movTitle, movYear, movSelect);
 			//append into movie results class
 			$('.movieResults').append(movContainer);
 		}
+
+		$('.movieResults').on("click", ".movieSelect", function() {
+			// debugger;
+			// console.log(this);
+			// console.log($(this).siblings());
+			console.log($(this).siblings('h2').text());
+		})
+		console.log(movieResults[0].title);
+		var selectedBook = movieResults[0].title
+		booksMovies.getData(selectedBook);
+
 }
 
 //get book information
-booksMovies.getData = () => { // <-- query parameter
+booksMovies.getData = (query) => { // <-- query parameter
 	$.ajax({
 		url: "https://www.googleapis.com/books/v1/volumes",
 		method: "GET",
@@ -139,7 +153,7 @@ booksMovies.getData = () => { // <-- query parameter
 			key: booksMovies.Bookkey,
 			format: "json",
 			// orderBy: "relevance",
-			q: 'hunger games' // <-- query parameter
+			q: query // <-- query parameter
 		}
 	}).then((res) => { // <-- Then should be based on selected book from list of arrays
 		console.log(res);
