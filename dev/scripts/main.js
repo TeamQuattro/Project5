@@ -49,8 +49,9 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 booksMovies.displayMovieInfo = (movieResults) => {
 		// console.log(movieResults);
 		// $().empty();
-		movieResults.forEach((movie) => {
-			console.log(movie.release_date);
+		movieResults.forEach((movieYear) => {
+			movieYear = movieYear.release_date.split("-");
+			// return
 		});
 	// for (let i = 0; i < 4; i++) {
 	// 	// 	movie backdrop path
