@@ -81,7 +81,7 @@ booksMovies.getData = () => { // <-- query parameter
 			key: booksMovies.Bookkey,
 			format: "json",
 			// orderBy: "relevance",
-			q: 'harry potter goblet' // <-- query parameter
+			q: 'hunger games' // <-- query parameter
 		}
 	}).then((res) => { // <-- Then should be based on selected book from list of arrays
 		console.log(res);
