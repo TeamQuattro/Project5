@@ -101,7 +101,17 @@ booksMovies.getData = () => { // <-- query parameter
 	});
 };
 
-booksMovies.displayData = () => {
+booksMovies.displayData = (booksMovies.getData) => {
+	var userReading = seconds;
+	var secondsPerPage = 2.75 * seconds;
+	var bookWords = pageCount * secondsPerPage;
+	var userFreeTime = (.freeTimeHours * 60) + .freeTimeMinutes;
+	var userResults = (bookWords / 60) / userFreeTime;
+	console.log(userReading);
+	console.log(secondsPerPage);
+	console.log(bookWords);
+	console.log(userFreeTime);
+	console.log(userResults);
 };
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
