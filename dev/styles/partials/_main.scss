@@ -70,7 +70,6 @@
 	.calculatingSpeed {
 		text-align: right;
 		
-
 		h3 {
 			font-size: 3rem;
 			margin-top: 0;
@@ -85,6 +84,24 @@
 		.watch {
 			font-size: 7.5rem;
 			color: #888;
+		}
+
+		#button-start {
+			background-color: $primaryColor;
+			font-size: 1.5rem;
+			color: white;
+			width: 110px;
+			height: 30px;
+			border: none;
+
+			span {
+				padding-right: 5px;
+			}		
+		}
+
+		#button-reset {
+			background-color: white;
+			
 		}
 	}
 }

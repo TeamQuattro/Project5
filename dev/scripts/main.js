@@ -33,7 +33,7 @@ window.onload = function () {
        console.log (seconds);
        var totalTime = seconds;
   }
-  
+
   buttonReset.onclick = function() {
      clearInterval(Interval);
     tens = "00";
@@ -181,30 +181,35 @@ booksMovies.getData = () => { // <-- query parameter
 };
 
 
+
 booksMovies.displayData = function() {
 	var userReading = totalTime;
 	console.log(totalTime);
 	var secondsPerBook = totalTime * booksMovies.getData.wordTotal / 100;
+	var bookWords = booksMovies.getData.pageCount * secondsPerPage;
+
 	// var bookWords = booksMovies.getData.pageCount * secondsPerPage;
 	var userFreeTime = ($(".freeTimeHours") * 60) + $(".freeTimeMinutes");
 	var userResults = (bookWords / 60) / userFreeTime;
 	console.log(userReading);
 	console.log(secondsPerBook);
-	// console.log(bookWords);
+	console.log(bookWords);
 	console.log(userFreeTime);
 	console.log(userResults);
 };
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
+	booksMovies.displayData();
 
 };
 
-
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
+
 	freeTimeTest();
 	booksMovies.displayData();
+
 };
 
 
