@@ -23,7 +23,7 @@ let handleSubmit = (e) => {
 	e.preventDefault();
 	let userInput = $(".queryInput").val();
 	booksMovies.getMovieInfo(userInput);
-	console.log(userInput);
+	// console.log(userInput);
 }
 
 
@@ -39,14 +39,28 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 			include_adult: false
 		}
 	}).then((res) => {
-		console.log(res);
-		booksMovies.getData(userMovieChoice);
-	})
+		let movieResults = res.results;
+		booksMovies.displayMovieInfo(movieResults);
+		booksMovies.getData(userMovieChoice); //(use an array loop to grab the first 4 arrays and their img/title *grab backdrop path //target book classes
+	});
 }
 
+// display movie information onto page
+booksMovies.displayMovieInfo = (movieResults) => {
+	for (let i = 0; i < 4; i++) {
+		// 	movie backdrop path
+		let movieBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
+		// creating and adding movie poster img to page
+		let movImage = `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`;
+		$(".bookPoster").append(`<img src="${movImage}" alt="movie poster of user's choice">`);
+		//creating h2 for movie title and adding to page
+		let movTitle = $('<h2>').text(movieResults[i].title);
+		$(".bookTitle").append(movTitle);
+	}
+}
 
 //get book information
-booksMovies.getData = (query) => {
+booksMovies.getData = (query) => {  
 	$.ajax({
 		url: "https://www.googleapis.com/books/v1/volumes",
 		method: "GET",
@@ -57,9 +71,9 @@ booksMovies.getData = (query) => {
 			q: query
 		}
 	}).then((res) => {
-		console.log(res);
-		booksMovies.bookTitle = res.items[0].volumeInfo.title;
-		console.log(booksMovies.bookTitle);
+		// console.log(res);
+		// booksMovies.bookTitle = res.items[0].volumeInfo.title;
+		// console.log(booksMovies.bookTitle);
 	});
 };
 
@@ -71,10 +85,10 @@ booksMovies.events = () => { // <-- Events, ie on click / submit
 }
 
 booksMovies.init = () => { // <-- INITIALIZING
-	console.log ("This works");
 	booksMovies.events();
 };
 
 $(() => { // <-- DOCUMENT READY
   booksMovies.init();
 });
+
