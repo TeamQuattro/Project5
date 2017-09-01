@@ -213,8 +213,19 @@ booksMovies.getData = (query) => { // <-- query parameter
 
 
 booksMovies.displayData = function(totalTime) {
+	// console.log($(".freeTimeMinutes").val() + "blah");
 	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
-	var userFreeTime = parseInt($(".freeTimeHours").val() * 60) + parseInt($(".freeTimeMinutes").val());
+	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
+	var freeTimeHours = $(".freeTimeHours").val();
+	var freeTimeMinutes = $(".freeTimeMinutes").val();
+	if(freeTimeHours == "") {
+		freeTimeHours = 0;
+	};
+	if(freeTimeMinutes == "") {
+		freeTimeMinutes = 0;
+	};
+	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
+	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
 	var userResults = (secondsPerBook / 60) / userFreeTime;
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
