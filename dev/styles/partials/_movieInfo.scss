@@ -22,13 +22,35 @@
 			width: calc((100% / 4) - 20px);	
 			margin: 10px;
 			img {
+				opacity: .85;
 				max-height: 390px;
+				transition: .3s all;
+				&:hover {
+					opacity:1;
+					cursor: pointer;
+					box-shadow: 0 3px 3px #333;
+					transform: scale(1.01);
+				}
 			}
 			h2 {
 				font-family: $primaryFont;
 				font-size: 2rem;
 				color: #333;
-				margin: 10px 0;
+				margin: 20px 0 10px;
+			}
+			.movieSelect {
+				color:#88a49c;
+				background-color: $quaternaryColor;
+				border: 1px solid #88a49c;
+				border-radius: 3px;
+				padding: 15px 50px;
+				font-size: 1.6rem;
+				text-transform: uppercase;
+				transition: .3s all;
+				&:hover {
+					background-color: darken($quaternaryColor,30);
+					color: #fff;
+				}
 			}
 		}
 	}
