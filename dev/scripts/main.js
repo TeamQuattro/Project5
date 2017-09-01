@@ -6,7 +6,7 @@ booksMovies.baseUrl = "https://www.googleapis.com/books/v1/volumes";
 booksMovies.bookKey = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
 
 
-const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
+const paragraph = "We liked to mash up the entire box of Junior Mints into one big ball. Make it into the Death Star and eat it like Jedi Knights. We tied Red Vines together till we could climb out of our lives and into the white light of heaven. Our shoes stuck to the floor like fly paper; the buzz of people waiting for the lights to dim. Would hide in the bathroom so we could watch again. Stale scent of history burned at the edges of our existence. Memory of car chases and falling in love. We always wanted a refill.";
 
 // $("#go1").click(function (e) {
 //     goToByScroll("movieInfo");
@@ -89,6 +89,7 @@ window.onload = function () {
 //Handling submit function
 let handleSubmit = (e) => {
 	e.preventDefault();
+	$(".movieResults").empty();
 	let userInput = $(".queryInput").val();
 	booksMovies.getMovieInfo(userInput);
 }
@@ -134,7 +135,11 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
+
 		// $().empty();
+
+		// console.log(movieResults);
+
 		
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
@@ -151,10 +156,12 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			let movSelect = $("<button>").addClass("movieSelect").text("select");
 
 			// container for movies 
-			let movContainer = $("<div>").addClass("movie wow fadeInLeft").append(movImage, movTitle, movYear, movSelect);
+			let movContainer = $("<div>").addClass("movie wow fadeInLeft").attr('data-movieBg', movBg).append(movImage, movTitle, movYear, movSelect);
+			// .attr('data', 'wideimage')
+
 			//append into movie results class
 			$('.movieResults').append(movContainer);
-			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
+			// $('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
 
 		}
 
@@ -162,12 +169,24 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			// debugger;
 			// console.log(this);
 			// console.log($(this).siblings());
+
+			//find the parent with a class of movie and grab the data atrribute
+
+
 			var selectedMovie = ($(this).siblings('h2').text());
 			booksMovies.getData(selectedMovie);
 
 			// $('.bookInfo').css("background-image", `url(${movBg})`);  
-		})
-		
+		});
+
+		$('.movieResults').on("click", ".movie", function() {
+			var bgMovie = $(this);
+			// console.log(bgMovie);
+			var movieBG = bgMovie.data('moviebg');
+			// console.log(movieBG); 
+			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`);  
+			// $('.bookInfo').css("background-image", `url(${movieBG})`);  
+		});
 
 }
 
@@ -230,6 +249,9 @@ booksMovies.displayData = function(totalTime) {
 	if(freeTimeMinutes == "") {
 		freeTimeMinutes = 0;
 	};
+	console.log(totalTime)
+	var wpm = (100 / totalTime) * 60;
+	console.log("wpm", wpm)
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
 	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
 	var userResults = (secondsPerBook / 60) / userFreeTime;
@@ -254,5 +276,3 @@ booksMovies.init = () => { // <-- INITIALIZING
 $(() => { // <-- DOCUMENT READY
   booksMovies.init();
 });
-
-
