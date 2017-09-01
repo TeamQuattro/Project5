@@ -41,17 +41,17 @@
 <section class="bookInfo wow flipInX hidden">
 	<div class="wrapper clearfix">
 		<div class="bookPoster">
-			<!-- {Book Image Goes Here} -->
+			{Book Image Goes Here}
 		</div>
 		<div class="bookDetails">
 			<div class="bookTitle">
-				<!-- {Book Title Goes Here} -->
+				{Book Title Goes Here}
 			</div>
 			<div class="bookAuthor">
-				<!-- {Book Author Goes Here} -->
+				{Book Author Goes Here}
 			</div>
 			<div class="bookOverview">
-				<!-- {Book Overview Goes Here} -->
+				{Book Overview Goes Here}
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 <section class="stepOneStopwatch hidden">
 	<div class="wrapper clearfix">
-		<div class="readingVerbiage speechBubble">
+		<div class="readingVerbiage">
 			<p>{Reading Paragraph Goes Here} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus distinctio cum beatae provident explicabo ratione accusamus est, doloremque pariatur aperiam nemo totam quisquam perspiciatis molestiae ab perferendis consectetur, aspernatur reiciendis.</p>
 		</div>
 		<div class="calculatingSpeed">
@@ -77,20 +77,18 @@
 
 <section class="freeTimeQuery hidden">
 	<div class="wrapper clearfix">
-		<div class="freeTimeContainer clearfix">
+		<div class="freeTimeContainer">
 			<span class="steps">02</span>
 			<h3>How much free time do you have to read everyday?</h3>
 			<h4>While you commute, when you have a break, after dinner etc ...</h4>
 		</div>
 		<div>
-			<form class="freeTimeInput clearfix">
-				<div class="clearfix">
-					<input type="number" class="freeTimeHours" placeholder="00">
-					<label for="hours">hours</label>
+			<form class="freeTimeInput">
+				<div>
+					<input type="number" class="freeTimeHours" placeholder="00">hours
 				</div>
 				<div>
-					<input type="number" class="freeTimeMinutes" placeholder="00">
-					<label for="minutes">minutes</label>
+					<input type="number" class="freeTimeMinutes" placeholder="00">minutes
 				</div>
 				<div class="freeTimeSubmitBtn">
 					<input type="submit" class="freeTimeSubmit" value="Submit" id="go">
@@ -117,7 +115,7 @@
 			</div>
 			<div class="resultsBox moreStats">
 				<p>It will take you approximately</p>
-				<p></p>
+				<p class="userSecondsPerBook"></p>
 				<p>second to read this book.</p>
 			</div>
 		</div>
