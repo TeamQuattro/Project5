@@ -224,7 +224,8 @@ booksMovies.displayData = function(totalTime) {
 	if(freeTimeMinutes == "") {
 		freeTimeMinutes = 0;
 	};
-	var wpm = totalTime * 60;
+	console.log(totalTime)
+	var wpm = (100 / totalTime) * 60;
 	console.log("wpm", wpm)
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
 	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
