@@ -125,13 +125,29 @@
 	
 	.freeTimeContainer {
 		border: 2px dashed yellow;
+		float: left;
 	}
 
 	.freeTimeInput {
-		width: calc((100% / 3));
 		border: 2px solid blue;
 		color: $darkerGray;
+		// clear: left;
 		float: right;
+
+		label {
+			font-size: 1.8rem;
+			padding-top: 10px;
+			padding-left: 10px;
+			margin-top: 20px;
+		}
+		
+		div {
+			float: left;
+		
+			&:last-child {
+				clear: left;
+			}
+		}
 
 		input[type="number"] {
 			// border: 1px solid red;
@@ -140,11 +156,13 @@
 			width: 50px;
 			height: 50px;
 			float: left;
+			font-size: 1.8rem;
 
 			&:focus {
 				// outline:none;
 				// border: 3px solid blue;
 			} 
+
 
 		}
 	}
