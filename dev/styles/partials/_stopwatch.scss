@@ -1,0 +1,66 @@
+.stepOneStopwatch {
+	background-color: $secondaryColor;
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+	.readingVerbiage {
+		background-color: white;
+		width: 50%;
+		padding: 30px;
+		box-shadow: 10px 10px 13px -6px rgba(168,152,142,1);
+		float: left;
+
+		p {
+			font-style: italic;
+			color: #555;
+			font-size: 2rem;
+			line-height: 3.4rem;
+			font-weight: 300;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.calculatingSpeed {
+		text-align: right;
+		
+		h3 {
+			font-size: 3rem;
+			margin-top: 0;
+			margin-bottom: 0;
+			color: #555;
+		}
+
+		#seconds, #tens {
+			font-size: 8rem;
+		}
+
+		#tens {
+			margin-left: 15px;
+		}
+
+		.watch {
+			font-size: 7.5rem;
+			color: $lighterGray;
+		}
+
+		#button-start {
+			background-color: $primaryColor;
+			font-size: 1.5rem;
+			color: white;
+			width: 110px;
+			height: 30px;
+			border: none;
+
+			span {
+				padding-right: 5px;
+			}		
+		}
+
+		#button-reset {
+			background-color: white;
+			color: $lighterGray;
+
+		}
+	}
+}
