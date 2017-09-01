@@ -13,14 +13,14 @@ const paragraph = "We liked to mash up the entire box of Junior Mints into one b
 //     e.preventDefault();
 // });
 
-// function goToByScroll(id) {
-// 	let toMe = $("." + id)
-// 	$("html,body").delay(600).animate({ scrollTop: toMe.offset().top }, 1100);
-// 	toMe.addClass("hightlightResult");
-// 	setTimeout(function () {
-// 		toMe.removeClass("hightlightResult", 1500);
-// 	}, 500);
-// }
+function goToByScroll(id) {
+	let toMe = $("." + id)
+	$("html,body").delay(600).animate({ scrollTop: toMe.offset().top }, 1100);
+	toMe.addClass("hightlightResult");
+	setTimeout(function () {
+		toMe.removeClass("hightlightResult", 1500);
+	}, 500);
+}
 
 // Stopwatch courtesy of Cathy Dutton 
 // https://codepen.io/cathydutton/pen/GBcvo
@@ -86,6 +86,8 @@ window.onload = function () {
 let handleSubmit = (e) => {
 	e.preventDefault();
 	$(".movieResults").empty();
+	$(".movieInfo").removeClass("hidden");
+	goToByScroll("movieInfo");
 	let userInput = $(".queryInput").val();
 	booksMovies.getMovieInfo(userInput);
 
@@ -95,6 +97,8 @@ let handleSubmit = (e) => {
 let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
+		$(".results").removeClass("hidden");
+		goToByScroll("results");
 		$(".emptyResults").empty();
 		booksMovies.displayData(booksMovies.totalTime);
 
@@ -155,6 +159,10 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			//find the parent with a class of movie and grab the data atrribute
 
 
+			$(".bookInfo").removeClass("hidden");
+			$(".stepOneStopwatch").removeClass("hidden");
+			$(".freeTimeQuery").removeClass("hidden");
+			goToByScroll("bookInfo");
 			let selectedMovie = ($(this).siblings('h2').text());
 			booksMovies.getData(selectedMovie);
 
