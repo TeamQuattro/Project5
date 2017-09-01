@@ -89,6 +89,7 @@ window.onload = function () {
 //Handling submit function
 let handleSubmit = (e) => {
 	e.preventDefault();
+	$(".movieResults").empty();
 	let userInput = $(".queryInput").val();
 	booksMovies.getMovieInfo(userInput);
 }
@@ -127,7 +128,6 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
 		// console.log(movieResults);
-		// $().empty();
 		
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
