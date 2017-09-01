@@ -118,15 +118,17 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 			query: userMovieChoice,
 			include_adult: false
 		}
-	}).then((res) => {
+	})
+	.then((res) => {
 		let movieResults = res.results;
 		booksMovies.displayMovieInfo(movieResults);
 	});
 	// .fail((err) => {
-	// 	let noImg = "Sorry, no image found";
-	// 	if() {
-
-	// 	}
+	// 	console.log(err);
+	// 	// let noImg = "Sorry, no image found";
+	// 	// if(err.poster_path === null) {
+	// 	// 	console.log("hello");
+	// 	// }
 	// })
 }
 
@@ -137,7 +139,6 @@ booksMovies.displayMovieInfo = (movieResults) => {
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
 			let movBg = `https://image.tmdb.org/t/p/w1400_and_h450_bestv2${movieResults[i].backdrop_path}`;
-			console.log(movBg);
 			// movie poster
 			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
 			//movie title <h2> and adding to page
