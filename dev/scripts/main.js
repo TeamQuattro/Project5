@@ -92,6 +92,7 @@ let handleSubmit = (e) => {
 	$(".movieResults").empty();
 	let userInput = $(".queryInput").val();
 	booksMovies.getMovieInfo(userInput);
+
 }
 
 // Gets users free time submission
@@ -183,7 +184,7 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			// console.log(bgMovie);
 			var movieBG = bgMovie.data('moviebg');
 			// console.log(movieBG); 
-			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`);  
+			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`).css("background-position", `center center`);  
 			// $('.bookInfo').css("background-image", `url(${movieBG})`);  
 		});
 
@@ -238,7 +239,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 
 booksMovies.displayData = function(totalTime) {
 	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
-	$( ".userSecondsPerBook" ).append( secondsPerBook )
+	$( ".moreStats" ).append( secondsPerBook )
 	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
 	var freeTimeHours = $(".freeTimeHours").val();
 	var freeTimeMinutes = $(".freeTimeMinutes").val();
