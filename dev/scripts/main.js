@@ -8,6 +8,20 @@ booksMovies.bookKey = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
 
 const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
 
+// $("#go1").click(function (e) {
+//     goToByScroll("movieInfo");
+//     e.preventDefault();
+// });
+
+// function goToByScroll(id) {
+// 	var toMe = $("." + id)
+// 	$("html,body").delay(600).animate({ scrollTop: toMe.offset().top }, 1100);
+// 	toMe.addClass("hightlightResult");
+// 	setTimeout(function () {
+// 		toMe.removeClass("hightlightResult", 1500);
+// 	}, 500);
+// }
+
 //STOPWATCH JS INCOMMING
 // Stopwatch by Cathy Dutton 
 // https://codepen.io/cathydutton/pen/GBcvo
@@ -117,7 +131,8 @@ booksMovies.displayMovieInfo = (movieResults) => {
 		
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
-			let movBg = `https://image.tmdb.org/t/p/w500${movieResults[i].backdrop_path}`;
+			let movBg = `https://image.tmdb.org/t/p/w1400_and_h450_bestv2${movieResults[i].backdrop_path}`;
+			console.log(movBg);
 			// movie poster
 			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
 			//movie title <h2> and adding to page
@@ -130,20 +145,23 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			let movSelect = $("<button>").addClass("movieSelect").text("select");
 
 			// container for movies 
-			let movContainer = $("<div>").addClass("movie").append(movImage, movTitle, movYear, movSelect);
+			let movContainer = $("<div>").addClass("movie wow fadeInLeft").append(movImage, movTitle, movYear, movSelect);
 			//append into movie results class
 			$('.movieResults').append(movContainer);
+			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
+
 		}
 
 		$('.movieResults').on("click", ".movieSelect", function() {
 			// debugger;
 			// console.log(this);
 			// console.log($(this).siblings());
-			console.log($(this).siblings('h2').text());
+			var selectedMovie = ($(this).siblings('h2').text());
+			booksMovies.getData(selectedMovie);
+
+			// $('.bookInfo').css("background-image", `url(${movBg})`);  
 		})
-		console.log(movieResults[0].title);
-		var selectedBook = movieResults[0].title
-		booksMovies.getData(selectedBook);
+		
 
 }
 
@@ -187,7 +205,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		$('.bookAuthor').html(`<p>${authors}</p>`); 
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
 
-		$('.readingVerbiage').html(`${paragraph}`);
+		$('.readingVerbiage').html(`<p>${paragraph}<p>`);
 
 	});
 };

@@ -1,0 +1,35 @@
+.movieInfo {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+	h2 {
+		color: #555;
+	}
+
+	.movieResults {
+		// width: calc((100% - 36px) / 4);
+		// float: left;
+		// temporary BG for design display purposes
+		// background: pink;
+		// margin-left: 8px;
+		
+		&:first-child {
+			// not sure why it's not seeing this... Adjust calculations above if I get this to work...
+			// margin-left: 0;
+		}
+		.movie {
+			float: left;
+			width: calc((100% / 4) - 20px);	
+			margin: 10px;
+			img {
+				max-height: 390px;
+			}
+			h2 {
+				font-family: $primaryFont;
+				font-size: 2rem;
+				color: #333;
+				margin: 10px 0;
+			}
+		}
+	}
+}

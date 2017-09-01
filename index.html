@@ -5,21 +5,28 @@
 	<title>Team Quattro - Project 5</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Playfair+Display:700i" rel="stylesheet">
 	<link rel="stylesheet" href="public/styles/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<script src="public/scripts/wow.min.js"></script>
+		<script>
+		new WOW().init();
+		</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>	
 <header>
-	<div class="wrapper headerText">
-		<h1>Movies and Books</h1>
-		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-		<form class="movieQuery">
-			<div>
-				<input type="text" class="queryInput" value="Jurassic Park" placeholder="search by movie title">
-			</div>
-			<div class="submitBtn">
-				<input type="submit" class="querySubmit" value="Submit" id="go">
-			</div>
-		</form>
+	<div class="wrapper">
+		<div class="headerText">
+			<h1>Movies and Books</h1>
+			<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+			<form class="movieQuery">
+				<div>
+					<input type="text" class="queryInput" value="" placeholder="Enter a movie title (ex. Jurassic Park)">
+				</div>
+				<div class="submitBtn">
+					<input type="submit" class="querySubmit" value="Submit" id="go1">
+				</div>
+			</form>
+		</div>
 	</div>
 </header>
 
@@ -31,7 +38,7 @@
 	</div>
 </section>
 
-<section class="bookInfo hidden">
+<section class="bookInfo wow flipInX hidden">
 	<div class="wrapper clearfix">
 		<div class="bookPoster">
 			{Book Image Goes Here}
@@ -94,7 +101,7 @@
 <section class="results hidden">
 	<div class="wrapper">
 		<h2>Results</h2>
-		<h3>Based on your selection of the movie {Harry Potter} ..</h3>
+		<h3>Based on your selection of the movie <span>{Harry Potter}</span> ..</h3>
 		<div class="clearfix">
 			<div class="resultsBox resultsReadSpeed">
 				<p>Your average reading speed</p>
@@ -126,7 +133,6 @@
 
 <script src="https://use.fontawesome.com/be7cb9fabf.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<script src="public/scripts/stopwatch.js"></script>
 <script src="public/scripts/main.js"></script>
 </body>
 </html>
