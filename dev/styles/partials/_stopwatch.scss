@@ -44,6 +44,25 @@
 			color: $lighterGray;
 		}
 
+		// #button-start {
+		// 	background-color: $primaryColor;
+		// 	font-size: 1.5rem;
+		// 	color: white;
+		// 	width: 110px;
+		// 	height: 30px;
+		// 	border: none;
+
+		// 	span {
+		// 		padding-right: 5px;
+		// 	}		
+		// }
+
+		// #button-reset {
+		// 	background-color: white;
+		// 	color: $lighterGray;
+
+		// }
+
 		#button-start {
 			background-color: $primaryColor;
 			font-size: 1.5rem;
@@ -52,15 +71,25 @@
 			height: 30px;
 			border: none;
 
-			span {
-				padding-right: 5px;
-			}		
+		}
+
+		#button-stop {
+			background-color: $primaryColor;
+			font-size: 1.5rem;
+			color: white;
+			width: 110px;
+			height: 30px;
+			border: none;
+
 		}
 
 		#button-reset {
 			background-color: white;
 			color: $lighterGray;
-
+			border: none;
+			width: 110px;
+			height: 30px;
+			font-size: 1.5rem;
 		}
 	}
 }
