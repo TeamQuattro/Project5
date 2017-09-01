@@ -8,7 +8,6 @@ body {color:#555;}
 h1, h2, h5, h6 {
 	font-weight: 700;
 	margin: 0;
-	font-style: italic;
 	font-family: $secondaryFont;
 }
 
@@ -37,7 +36,6 @@ img {
 .wrapper {
 	max-width: 1170px;
 	margin: 0 auto;
-	border: 2px solid blue;
 	@include respond-to ('medium') {
 		padding: 0 15px;
 	}
