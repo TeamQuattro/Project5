@@ -145,10 +145,12 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			let movSelect = $("<button>").addClass("movieSelect").text("select");
 
 			// container for movies 
-			let movContainer = $("<div>").addClass("movie wow fadeInLeft").append(movImage, movTitle, movYear, movSelect);
+			let movContainer = $("<div>").addClass("movie wow fadeInLeft").attr('data-movieBg', movBg).append(movImage, movTitle, movYear, movSelect);
+			// .attr('data', 'wideimage')
+
 			//append into movie results class
 			$('.movieResults').append(movContainer);
-			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
+			// $('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
 
 		}
 
@@ -156,12 +158,24 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			// debugger;
 			// console.log(this);
 			// console.log($(this).siblings());
+
+			//find the parent with a class of movie and grab the data atrribute
+
+
 			var selectedMovie = ($(this).siblings('h2').text());
 			booksMovies.getData(selectedMovie);
 
 			// $('.bookInfo').css("background-image", `url(${movBg})`);  
-		})
-		
+		});
+
+		$('.movieResults').on("click", ".movie", function() {
+			var bgMovie = $(this);
+			// console.log(bgMovie);
+			var movieBG = bgMovie.data('moviebg');
+			// console.log(movieBG); 
+			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`);  
+			// $('.bookInfo').css("background-image", `url(${movieBG})`);  
+		});
 
 }
 
@@ -251,5 +265,3 @@ booksMovies.init = () => { // <-- INITIALIZING
 $(() => { // <-- DOCUMENT READY
   booksMovies.init();
 });
-
-
