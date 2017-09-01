@@ -213,8 +213,8 @@ booksMovies.getData = (query) => { // <-- query parameter
 
 
 booksMovies.displayData = function(totalTime) {
-	// console.log($(".freeTimeMinutes").val() + "blah");
 	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
+	$( ".moreStats" ).append( secondsPerBook )
 	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
 	var freeTimeHours = $(".freeTimeHours").val();
 	var freeTimeMinutes = $(".freeTimeMinutes").val();
@@ -224,12 +224,13 @@ booksMovies.displayData = function(totalTime) {
 	if(freeTimeMinutes == "") {
 		freeTimeMinutes = 0;
 	};
-	console.log(totalTime)
-	var wpm = (100 / totalTime) * 60;
+	var wpm = ((100 / totalTime) * 60).toFixed(0);
 	console.log("wpm", wpm)
+	$( ".userReadingSpeed" ).append( wpm );
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
 	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
-	var userResults = (secondsPerBook / 60) / userFreeTime;
+	var userResults = ((secondsPerBook / 60) / userFreeTime).toFixed(0);
+	$( ".userDaysToRead" ).append( userResults );
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
 	console.log(userResults);
