@@ -239,7 +239,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 
 booksMovies.displayData = function(totalTime) {
 	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
-	$( ".moreStats" ).append( secondsPerBook )
+	$( ".userSecondsPerBook" ).append( secondsPerBook )
 	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
 	var freeTimeHours = $(".freeTimeHours").val();
 	var freeTimeMinutes = $(".freeTimeMinutes").val();
