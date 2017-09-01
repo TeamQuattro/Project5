@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Team Quattro - Project 5</title>
+	<title>The book is always better</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Playfair+Display:700i" rel="stylesheet">
 	<link rel="stylesheet" href="public/styles/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -16,7 +16,7 @@
 <header>
 	<div class="wrapper">
 		<div class="headerText">
-			<h1>"Now Let Me Read The Book"</h1>
+			<h1>The book is always better</h1>
 			<h3>Find a book that matches your favorite movies</h3>
 			<form class="movieQuery">
 				<div>
@@ -59,8 +59,7 @@
 
 <section class="stepOneStopwatch hidden">
 	<div class="wrapper clearfix">
-		<div class="readingVerbiage">
-			<p>{Reading Paragraph Goes Here} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus distinctio cum beatae provident explicabo ratione accusamus est, doloremque pariatur aperiam nemo totam quisquam perspiciatis molestiae ab perferendis consectetur, aspernatur reiciendis.</p>
+		<div class="readingVerbiage speechBubble">
 		</div>
 		<div class="calculatingSpeed">
 			<span class="steps">01</span>
@@ -101,22 +100,22 @@
 <section class="results hidden">
 	<div class="wrapper">
 		<h2>Results</h2>
-		<h3>Based on your selection of the book <span>{Harry Potter}</span> ..</h3>
+		<h3>Based on your selection of the book <span id="bookTitleResults"></span></h3>
 		<div class="clearfix">
 			<div class="resultsBox resultsReadSpeed">
 				<p>Your average reading speed</p>
-				<p class="userReadingSpeed"></p>
+				<p class="emptyResults userReadingSpeed"></p>
 				<p>words / minute</p>
 			</div>
 			<div class="resultsBox daysToRead">
 				<p>It will take you</p>
-				<p class="userDaysToRead"></p>
+				<p class="emptyResults userDaysToRead"></p>
 				<p>days to finish the book</p>
 			</div>
 			<div class="resultsBox moreStats">
 				<p>It will take you approximately</p>
-				<p class="userSecondsPerBook"></p>
-				<p>second to read this book</p>
+				<p class="emptyResults userSecondsPerBook"></p>
+				<p>seconds to read this book</p>
 			</div>
 		</div>
 	</div>

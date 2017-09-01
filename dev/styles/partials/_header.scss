@@ -1,6 +1,6 @@
 header {
 	background-color: $primaryColor;
-	background: linear-gradient(rgba($primaryColorRgb, $alpha), rgba($primaryColorRgb, $alpha)), url(https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=);
+	background: linear-gradient(rgba(darken($primaryColorRgb,30), .9), rgba($primaryColorRgb, $alpha)), url(https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=);
 	background-size: cover;
 	text-align: center;
 	.wrapper{
@@ -12,13 +12,18 @@ header {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		width: 100%;
 		h1 {
 			font-size: 8rem;
+			line-height: 1;
+			margin-bottom: 30px;
+			text-shadow: 1px 2px 4px rgba(0,0,0,0.75);
 		}
 	}
 
 	.queryInput {
 		width: 600px;
+		max-width: 100%;
 		// height: 30px;
 		box-shadow: 10px 10px 13px -6px rgba(0,0,0,0.75);
 		border-radius: 4px;
@@ -26,7 +31,8 @@ header {
 		font-size: 2.4rem;
 		font-weight: 300;
 		letter-spacing: 1px;
-		color: #aaa;
+		color: #333;
+		text-align: center;
 		&::placeholder {
 			color: $tertiaryColor;
 		}
@@ -35,17 +41,20 @@ header {
 	.submitBtn {
 		.querySubmit {
 			border-radius: 0px;
-			background-color: $primaryColor;
+			background-color: rgba(darken($primaryColorRgb,20),.7);
 			border: 3px solid white;
 			color: white;
 			text-transform: uppercase;
-			// width: 100px;
-			// height: 30px;
 			font-size: 2.4rem;
 			margin-top: 30px;
 			border-radius: 4px;
 			letter-spacing: 2px;
 			padding: 10px 25px;
+			transition: .3s all;
+			&:hover {
+				background-color: darken($primaryColor,20);
+
+			}
 		}
 	}
 	

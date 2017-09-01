@@ -25,6 +25,12 @@
 		width: 65%;
 		margin-right: 5%;
 		padding-left: 50px;
+		.bookTitle {
+
+		}
+		.bookAuthor {
+			font-size: 2rem;
+		}
 		.bookOverview {
 			h2 {
 				font-family: $primaryFont;
