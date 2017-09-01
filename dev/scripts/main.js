@@ -6,7 +6,7 @@ booksMovies.baseUrl = "https://www.googleapis.com/books/v1/volumes";
 booksMovies.bookKey = "AIzaSyCzmy3LAli_4J8VGAHaAfdkCL3xC_4iVlE"
 
 
-const paragraph = "We’re buzzing in our pews, the electricity of raw gossip flitting around us like so many wings. We feed on it, spread it around like a honey that sticks. Our madam archdeacon is at the center of it all, and if the rumors are true, no vestment can hide her guilt from the likes of us. The service is about to start. The organ hums to life, signalling the start of the processional: the venerable queen is about to emerge. Suspicion thickens the air like pollen. Our faces turn towards the narthex, primed to sting. Conditions are favorable for swarming.";
+const paragraph = "We liked to mash up the entire box of Junior Mints into one big ball. Make it into the Death Star and eat it like Jedi Knights. We tied Red Vines together till we could climb out of our lives and into the white light of heaven. Our shoes stuck to the floor like fly paper; the buzz of people waiting for the lights to dim. Would hide in the bathroom so we could watch again. Stale scent of history burned at the edges of our existence. Memory of car chases and falling in love. We always wanted a refill.";
 
 // $("#go1").click(function (e) {
 //     goToByScroll("movieInfo");
@@ -224,6 +224,8 @@ booksMovies.displayData = function(totalTime) {
 	if(freeTimeMinutes == "") {
 		freeTimeMinutes = 0;
 	};
+	var wpm = totalTime * 60;
+	console.log("wpm", wpm)
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
 	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
 	var userResults = (secondsPerBook / 60) / userFreeTime;
