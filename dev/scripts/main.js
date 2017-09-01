@@ -125,12 +125,11 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 		booksMovies.displayMovieInfo(movieResults);
 	});
 	// .fail((err) => {
-	// 	console.log(err);
 	// 	// let noImg = "Sorry, no image found";
-	// 	// if(err.poster_path === null) {
-	// 	// 	console.log("hello");
-	// 	// }
-	// })
+	// 	if(err.poster_path === "https://image.tmdb.org/t/p/w500null") {
+	// 		console.log("hello");
+	// 	}
+	// });
 }
 
 // display movie information onto page
