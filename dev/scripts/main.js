@@ -122,11 +122,16 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 		let movieResults = res.results;
 		booksMovies.displayMovieInfo(movieResults);
 	});
+	// .fail((err) => {
+	// 	let noImg = "Sorry, no image found";
+	// 	if() {
+
+	// 	}
+	// })
 }
 
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
-		// console.log(movieResults);
 		// $().empty();
 		
 		for (let i = 0; i < 4; i++) {
