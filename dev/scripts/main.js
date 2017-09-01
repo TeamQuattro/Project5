@@ -14,7 +14,7 @@ const paragraph = "We liked to mash up the entire box of Junior Mints into one b
 // });
 
 // function goToByScroll(id) {
-// 	var toMe = $("." + id)
+// 	let toMe = $("." + id)
 // 	$("html,body").delay(600).animate({ scrollTop: toMe.offset().top }, 1100);
 // 	toMe.addClass("hightlightResult");
 // 	setTimeout(function () {
@@ -22,34 +22,29 @@ const paragraph = "We liked to mash up the entire box of Junior Mints into one b
 // 	}, 500);
 // }
 
-//STOPWATCH JS INCOMMING
-// Stopwatch by Cathy Dutton 
+// Stopwatch courtesy of Cathy Dutton 
 // https://codepen.io/cathydutton/pen/GBcvo
 
 window.onload = function () {
   
-  var seconds = 0; 
-  var tens = 0; 
-  var appendTens = document.getElementById("tens")
-  var appendSeconds = document.getElementById("seconds")
-  var buttonStart = document.getElementById('button-start');
-  var buttonStop = document.getElementById('button-stop');
-  var buttonReset = document.getElementById('button-reset');
-  var Interval ;
-  // var totalTime;
+  let seconds = 0; 
+  let tens = 0; 
+  let appendTens = document.getElementById("tens");
+  let appendSeconds = document.getElementById("seconds");
+  let buttonStart = document.getElementById("button-start");
+  let buttonStop = document.getElementById("button-stop");
+  let buttonReset = document.getElementById("button-reset");
+  let Interval ;
 
   buttonStart.onclick = function() {
      clearInterval(Interval);
      Interval = setInterval(startTimer, 10);
   }
   
-    buttonStop.onclick = function() {
+  buttonStop.onclick = function() {
        clearInterval(Interval);
-       // console.log (seconds);
-       // debugger;
-       var totalTime = seconds;
+       let totalTime = seconds;
        window.booksMovies.totalTime = totalTime;
-       // booksMovies.displayData(totalTime);
   }
 
   buttonReset.onclick = function() {
@@ -99,13 +94,9 @@ let handleSubmit = (e) => {
 let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
-		// let freeTimeHours = $(".freeTimeHours").val();
-		// let freeTimeMinutes = $(".freeTimeMinutes").val();
-		// console.log(freeTimeHours);
-		// console.log(freeTimeMinutes);
+		$(".emptyResults").empty();
 		booksMovies.displayData(booksMovies.totalTime);
 
-		// console.log("success");
 	});
 }
 
@@ -163,16 +154,16 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			//find the parent with a class of movie and grab the data atrribute
 
 
-			var selectedMovie = ($(this).siblings('h2').text());
+			let selectedMovie = ($(this).siblings('h2').text());
 			booksMovies.getData(selectedMovie);
 
 			// $('.bookInfo').css("background-image", `url(${movBg})`);  
 		});
 
 		$('.movieResults').on("click", ".movie", function() {
-			var bgMovie = $(this);
+			let bgMovie = $(this);
 			// console.log(bgMovie);
-			var movieBG = bgMovie.data('moviebg');
+			let movieBG = bgMovie.data('moviebg');
 			// console.log(movieBG); 
 			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`).css("background-position", `center center`);  
 			// $('.bookInfo').css("background-image", `url(${movieBG})`);  
@@ -194,16 +185,16 @@ booksMovies.getData = (query) => { // <-- query parameter
 		}
 	}).then((res) => { // <-- Then should be based on selected book from list of arrays
 		console.log(res);
-		var bookTitle = res.items[0].volumeInfo.title;
-		var subTitle = res.items[0].volumeInfo.subtitle;
-		var authors = res.items[0].volumeInfo.authors[0];
-		var categories = res.items[0].volumeInfo.categories[0];
-		var description = res.items[0].volumeInfo.description;
-		var pageCount = res.items[0].volumeInfo.pageCount;
-		var wordTotal = pageCount * 275;
-		var bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
-		var bookImageSplit = bookImage.split("&zoom=1");
-		var bookImageLarge = bookImageSplit[0];
+		let bookTitle = res.items[0].volumeInfo.title;
+		let subTitle = res.items[0].volumeInfo.subtitle;
+		let authors = res.items[0].volumeInfo.authors[0];
+		let categories = res.items[0].volumeInfo.categories[0];
+		let description = res.items[0].volumeInfo.description;
+		let pageCount = res.items[0].volumeInfo.pageCount;
+		let wordTotal = pageCount * 275;
+		let bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
+		let bookImageSplit = bookImage.split("&zoom=1");
+		let bookImageLarge = bookImageSplit[0];
 		console.log(`Book Title is ${bookTitle}`);
 		console.log(`Book Subtitle is ${subTitle}`);
 		console.log(`Book Author is ${authors}`);
@@ -221,6 +212,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
 
 		$('.readingVerbiage').html(`<p>${paragraph}<p>`);
+		$("#bookTitleResults").append(`${bookTitle}`);
 
 	});
 };
@@ -228,23 +220,23 @@ booksMovies.getData = (query) => { // <-- query parameter
 
 
 booksMovies.displayData = function(totalTime) {
-	var secondsPerBook = totalTime * booksMovies.wordTotal / 100;
+	let secondsPerBook = totalTime * booksMovies.wordTotal / 100;
 	$( ".userSecondsPerBook" ).append( secondsPerBook )
 	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
-	var freeTimeHours = $(".freeTimeHours").val();
-	var freeTimeMinutes = $(".freeTimeMinutes").val();
+	let freeTimeHours = $(".freeTimeHours").val();
+	let freeTimeMinutes = $(".freeTimeMinutes").val();
 	if(freeTimeHours == "") {
 		freeTimeHours = 0;
 	};
 	if(freeTimeMinutes == "") {
 		freeTimeMinutes = 0;
 	};
-	var wpm = ((100 / totalTime) * 60).toFixed(0);
+	let wpm = ((100 / totalTime) * 60).toFixed(0);
 	console.log("wpm", wpm)
 	$( ".userReadingSpeed" ).append( wpm );
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
-	var userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
-	var userResults = ((secondsPerBook / 60) / userFreeTime).toFixed(0);
+	let userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
+	let userResults = ((secondsPerBook / 60) / userFreeTime).toFixed(0);
 	$( ".userDaysToRead" ).append( userResults );
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
