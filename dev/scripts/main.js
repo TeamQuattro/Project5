@@ -204,6 +204,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		let bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
 		let bookImageSplit = bookImage.split("&zoom=1");
 		let bookImageLarge = bookImageSplit[0];
+		let bookLink = res.items[0].volumeInfo.infoLink;
 		console.log(`Book Title is ${bookTitle}`);
 		console.log(`Book Subtitle is ${subTitle}`);
 		console.log(`Book Author is ${authors}`);
@@ -214,12 +215,13 @@ booksMovies.getData = (query) => { // <-- query parameter
 		booksMovies.wordTotal = wordTotal;
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
+		console.log(`Book link is ${bookLink}`);
 
 		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
 		$('.bookTitle').html(`<h1>${bookTitle}</h1>`); 
 		$('.bookAuthor').html(`<p>${authors}</p>`); 
 		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
-
+		$(".buyNow").attr("href", bookLink);
 		$('.readingVerbiage').html(`<p>${paragraph}<p>`);
 		$("#bookTitleResults").append(`${bookTitle}`);
 
@@ -254,9 +256,14 @@ booksMovies.displayData = function(totalTime) {
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
+	$(".resetButton").on("click", reloadPage);
 	// booksMovies.displayData();
-
 };
+let reloadPage = (e) => {
+	window.location.reload();
+	// console.log("reload")
+}
+
 
 booksMovies.init = () => { // <-- INITIALIZING
 	booksMovies.events();
