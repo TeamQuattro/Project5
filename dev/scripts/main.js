@@ -252,16 +252,15 @@ booksMovies.displayData = function(totalTime) {
 	console.log(secondsPerBook);
 	console.log(userFreeTime);
 	console.log(userResults);
-};
+}; 
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
 	$(".movieQuery").on("submit", handleSubmit);
-	$(".resetButton").on("click", reloadPage);
-	// booksMovies.displayData();
+	$("#resetButton").on("click", reloadPage);
 };
+
 let reloadPage = (e) => {
 	window.location.reload();
-	// console.log("reload")
 }
 
 
