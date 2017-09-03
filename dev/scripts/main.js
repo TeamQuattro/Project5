@@ -98,6 +98,7 @@ let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
 		$(".results").removeClass("hidden");
+		$("footer").removeClass("hidden");
 		goToByScroll("results");
 		$(".emptyResults").empty();
 		booksMovies.displayData(booksMovies.totalTime);
