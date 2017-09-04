@@ -1,5 +1,69 @@
 footer {
 	background-color: black;
 	padding-top: 50px;
-	padding-bottom: 50px;	
+	padding-bottom: 50px;
+	
+	.grayBg {
+		background-color: $lighterGray;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	div {
+		border: 1px solid blue;
+	}
+
+	img {
+		max-width: 100px;
+	}
+
+	p {
+		color: white;
+		font-size: 1.8rem;
+		// margin-top: 20px;
+		padding-right: 20px;
+		// float: left;
+		@include respond-to(small) {
+			float: none;
+		}
+	}
+
+	.poweredByText {
+		margin-top: 20px;
+
+		@include respond-to(small) {
+			padding-bottom: 0px;
+			margin-bottom: 0px;
+		}
+	}
+
+
+	.logos {
+		float: left;
+		padding-right: 20px;
+
+		@include respond-to(small) {
+			float: none;
+			padding-bottom: 20px;
+		}
+	}
+
+	.logosRight {
+		float: right;
+		@include respond-to(small) {
+			padding-top: 50px;
+			float: none;
+		}
+	}
+
+	.copyright {
+		margin: 0 auto;
+		padding-right: 0;
+		width: 200px;
+		margin-top: 20px;
+
+		@include respond-to(small) {
+			margin-top: 0px;
+		}
+	}
 }
+
