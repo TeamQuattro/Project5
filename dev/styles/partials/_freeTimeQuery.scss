@@ -1,26 +1,36 @@
 .freeTimeQuery {
-}
-
-.freeTimeQuery {
 	padding-top: 50px;
 	padding-bottom: 50px;
 	h3, h4 {
 		color: #555;
 		font-weight: 300;
 		margin: 0;
-	}
-	h3 {font-size: 3rem;
-	}
+}
 
-	.freeTimeContainer {
-		width: 50%;
-		float: left;
+h3 {
+	font-size: 3rem;
+	@include respond-to ('small') {
+		padding-bottom: 2rem;
 	}
+}
 
-	.freeTimeSelector {
-		width: 50%;
-		float: left;
+.freeTimeContainer {
+	width: 50%;
+	float: left;
+	@include respond-to ('small') {
+		padding-bottom: 3rem;
+	}
+}
 
+.freeTimeSubmit {
+	@include respond-to ('small') {
+		margin-top: 2rem;
+	}
+}
+
+.freeTimeSelector {
+	width: 50%;
+	float: left;
 		.freeTimeInput {
 		color: $darkerGray;
 		background-color: #ddd;
@@ -30,27 +40,23 @@
 		text-align: center;
 		display: inline-block; 
 
-		@include respond-to('medium') {
-			float: left;
-			width: 100%;		
+		h3 {
+			text-align: center;
+			margin-bottom: 20px;
 		}
-			h3 {
-				text-align: center;
-				margin-bottom: 20px;
-			}
-			p {
-				text-align: center;
-			}
-			.freeTimeHours, .freeTimeMinutes {
-				float: left;
-				width: 50%;
-			}
-			.freeTimeHours {
+		p {
+			text-align: center;
+		}
+		.freeTimeHours, .freeTimeMinutes {
+			float: left;
+			width: 50%;
+		}
+		.freeTimeHours {
 
-			}
-			.freeTimeMinutes {
+		}
+		.freeTimeMinutes {
 
-			}
+		}
 
 		// label {
 		// 	font-size: 1.8rem;
@@ -83,30 +89,33 @@
 			&::-webkit-inner-spin-button {
 				-webkit-appearance: none;
 			}
-
 			&:focus {
 			} 
 		}
-
-		.freeTimeSubmit {
-			background-color: $primaryColor;
-			text-transform: uppercase;
-			font-size: 3rem;
-			color: white;
-			border: none;
-			padding: 10px 30px;
-			border-radius: 3px;
-			transition: .3s all;
-			letter-spacing: 2px;
-			margin: 0 auto;
-			display: block;
-			&:hover {
-				background-color: darken($primaryColor, 10)
-			}
+}
+.freeTimeSubmit {
+		background-color: $primaryColor;
+		text-transform: uppercase;
+		font-size: 1rem;
+		color: white;
+		border: none;
+		padding: 10px 30px;
+		border-radius: 3px;
+		transition: .3s all;
+		letter-spacing: 2px;
+		margin-left: 19rem;
+		display: block;
+		@include respond-to('small') {
+			margin-left: 0.5rem;		
+		}
+		@include respond-to('medium') {
+			margin-left: 6.5rem;		
+		}
+		&:hover {
+			background-color: darken($primaryColor, 10)
 		}
 	}
-
 	}
+}
 
 	
-}

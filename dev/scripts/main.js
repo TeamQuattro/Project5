@@ -135,49 +135,41 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 			query: userMovieChoice,
 			include_adult: false
 		}
-	}).then((res) => {
+	})
+	.then((res) => {
 		let movieResults = res.results;
 		booksMovies.displayMovieInfo(movieResults);
-	});
+	})
+	.fail((err) => {
+		alert("Unfortunately, no movies can be found right now. Please try again later!");
+	})
 }
 
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
-		// console.log(movieResults);
-		
 		for (let i = 0; i < 4; i++) {
 			// 	movie backdrop path
 			let movBg = `https://image.tmdb.org/t/p/w1400_and_h450_bestv2${movieResults[i].backdrop_path}`;
-			console.log(movBg);
 			// movie poster
-			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
+			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`)
 			//movie title <h2> and adding to page
 			let movTitle = $("<h2>").text(movieResults[i].title);
 			//movie year
 			let movYear = movieResults[i].release_date.split("-");
 			movYear = $("<h3>").text(movYear[0]);
-
 			//select movie button
 			let movSelect = $("<button>").addClass("movieSelect").text("select");
-
 			// container for movies 
 			let movContainer = $("<div>").addClass("movie wow fadeInLeft").attr('data-movieBg', movBg).append(movImage, movTitle, movYear, movSelect);
 			// .attr('data', 'wideimage')
-
 			//append into movie results class
 			$('.movieResults').append(movContainer);
 			// $('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
-
 		}
-
 		$('.movieResults').on("click", ".movieSelect", function() {
-			// debugger;
-			// console.log(this);
-			// console.log($(this).siblings());
+
 
 			//find the parent with a class of movie and grab the data atrribute
-
-
 			$(".bookInfo").removeClass("hidden");
 			$(".stepOneStopwatch").removeClass("hidden");
 			$(".freeTimeQuery").removeClass("hidden");
