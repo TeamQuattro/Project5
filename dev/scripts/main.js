@@ -204,6 +204,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		let bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
 		let bookImageSplit = bookImage.split("&zoom=1");
 		let bookImageLarge = bookImageSplit[0];
+		let previewLink = res.items[0].volumeInfo.previewLink;
 		let bookLink = res.items[0].volumeInfo.infoLink;
 		console.log(`Book Title is ${bookTitle}`);
 		console.log(`Book Subtitle is ${subTitle}`);
@@ -215,6 +216,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		booksMovies.wordTotal = wordTotal;
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
+		console.log(`Book preview is ${previewLink}`);
 		console.log(`Book link is ${bookLink}`);
 
 		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
