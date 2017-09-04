@@ -96,15 +96,21 @@ h3 {
 .freeTimeSubmit {
 		background-color: $primaryColor;
 		text-transform: uppercase;
-		font-size: 3rem;
+		font-size: 1rem;
 		color: white;
 		border: none;
 		padding: 10px 30px;
 		border-radius: 3px;
 		transition: .3s all;
 		letter-spacing: 2px;
-		margin: 0 auto;
+		margin-left: 19rem;
 		display: block;
+		@include respond-to('small') {
+			margin-left: 0.5rem;		
+		}
+		@include respond-to('medium') {
+			margin-left: 6.5rem;		
+		}
 		&:hover {
 			background-color: darken($primaryColor, 10)
 		}
