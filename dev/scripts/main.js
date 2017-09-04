@@ -1,3 +1,21 @@
+// Twitter share button
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs")); 
+
 const booksMovies = {};
 
 //API keys
@@ -98,6 +116,7 @@ let freeTimeTest = () => {
 	$(".freeTimeInput").on("submit", (e) => {
 		e.preventDefault();
 		$(".results").removeClass("hidden");
+		$("footer").removeClass("hidden");
 		goToByScroll("results");
 		$(".emptyResults").empty();
 		booksMovies.displayData(booksMovies.totalTime);
@@ -196,6 +215,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		let bookImage = res.items[0].volumeInfo.imageLinks.thumbnail;
 		let bookImageSplit = bookImage.split("&zoom=1");
 		let bookImageLarge = bookImageSplit[0];
+		let previewLink = res.items[0].volumeInfo.previewLink;
 		let bookLink = res.items[0].volumeInfo.infoLink;
 		console.log(`Book Title is ${bookTitle}`);
 		console.log(`Book Subtitle is ${subTitle}`);
@@ -207,6 +227,7 @@ booksMovies.getData = (query) => { // <-- query parameter
 		booksMovies.wordTotal = wordTotal;
 		console.log(`Book image is ${bookImage}`);
 		console.log(`Book image is ${bookImageLarge}`);
+		console.log(`Book preview is ${previewLink}`);
 		console.log(`Book link is ${bookLink}`);
 
 		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
