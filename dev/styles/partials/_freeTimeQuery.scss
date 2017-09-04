@@ -31,17 +31,15 @@ h3 {
 .freeTimeSelector {
 	width: 50%;
 	float: left;
-}
+		.freeTimeInput {
+		color: $darkerGray;
+		background-color: #ddd;
+		border: 1px solid #ccc;
+		padding: 30px;
+		width: 100%;
+		text-align: center;
+		display: inline-block; 
 
-.freeTimeInput {
-	color: $darkerGray;
-	background-color: #ddd;
-	border: 1px solid #ccc;
-	padding: 30px;
-	@include respond-to('medium') {
-		float: left;
-		width: 100%;		
-	}
 		h3 {
 			text-align: center;
 			margin-bottom: 20px;
@@ -94,7 +92,7 @@ h3 {
 			&:focus {
 			} 
 		}
-
+}
 .freeTimeSubmit {
 		background-color: $primaryColor;
 		text-transform: uppercase;
