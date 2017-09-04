@@ -107,3 +107,74 @@
 	}
 }
 
+
+.freeTimeQuery {
+	
+	.freeTimeContainer {
+		// border: 2px dashed yellow;
+		float: left;
+	}
+
+	.freeTimeInput {
+		// border: 2px solid blue;
+		color: $darkerGray;
+		// clear: left;
+		margin-right: 5%;
+		float: right;
+
+		@include respond-to('small') {
+			// margin-right: 0;
+			width: 100%;		
+		}
+
+		@include respond-to('medium') {
+			float: left;
+			width: 100%;		
+		}
+
+		label {
+			font-size: 1.8rem;
+			padding-left: 10px;
+			padding-right: 10px;
+
+		}
+		
+		div {
+			float: left;
+		
+			&:last-child {
+				clear: left;
+			}
+		}
+
+		input[type="number"] {
+			// border: 1px solid red;
+			background-color: #f8f8f8;
+			color: $lighterGray;
+			width: 50px;
+			height: 50px;
+			float: left;
+			font-size: 1.8rem;
+
+			&:focus {
+				// outline:none;
+				// border: 3px solid blue;
+			} 
+		}
+
+		.freeTimeSubmit {
+			background-color: $primaryColor;
+			text-transform: uppercase;
+			font-size: 1.5rem;
+			color: white;
+			width: 110px;
+			height: 30px;
+			border: none;
+			transition: .3s all;
+			&:hover {
+				background-color: darken($primaryColor,20);
+			}
+
+		}
+	}
+}
