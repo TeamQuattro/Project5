@@ -81,14 +81,23 @@
 			<h3>How much free time do you have to read everyday?</h3>
 			<h4>While you commute, when you have a break, after dinner etc ...</h4>
 		</div>
-		<div>
+		<div class="freeTimeSelector">
 			<form class="freeTimeInput">
-				<div>
+
+				<h3>Free Time Per Day</h3>
+				<div class="freeTimeHours">
+					<input type="number" class="freeTimeHours" placeholder="--" min="0"><p>hours</p>
+				</div>
+				<div class="freeTimeMinutes">
+					<input type="number" class="freeTimeMinutes" placeholder="--" min="0"><p>minutes</p>
+
+<!-- 				<div>
 					<input type="number" class="freeTimeHours" placeholder="00" required>hours
 				</div>
 				<div>
 					<input type="number" class="freeTimeMinutes" placeholder="00" required>minutes
-				</div>
+
+				</div> -->
 				<div class="freeTimeSubmitBtn">
 					<input type="submit" class="freeTimeSubmit" value="Submit" id="go">
 				</div>
