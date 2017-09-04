@@ -3,8 +3,17 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 	text-align: center;
+	@include respond-to ('small') {
+		overflow: auto;
+	}
+	@include respond-to ('medium') {
+		overflow: auto;
+	}
 	h2 {
 		color: #555;
+		@include respond-to ('small') {
+			font-size: 4rem;
+		}
 	}
 
 	.movieResults {
@@ -21,6 +30,12 @@
 		.movie {
 			float: left;
 			width: calc((100% / 4) - 20px);	
+			@include respond-to ('small') {
+			width: calc((100% / 2) - 20px);
+			}
+			@include respond-to ('medium') {
+			width: calc((100% / 2) - 20px);
+			}
 			margin: 10px;
 			img {
 				opacity: .85;

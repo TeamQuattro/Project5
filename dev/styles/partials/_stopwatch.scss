@@ -7,14 +7,12 @@
 	.speechBubble {
 		position: relative;
 		padding: 15px;
-		// margin: 1em 0 3em;
 		color: #fff;
 		background: #fff;
 		-webkit-border-radius:10px;
 		-moz-border-radius:10px;
 		border-radius: 10px;
 		box-shadow: 10px 10px 13px -6px rgba(168,152,142,1);
-		// float: left;
 
 		&:after {
 			content: "";
@@ -24,7 +22,6 @@
 			border-width: 20px 0 0 20px;
 			border-style: solid;
 			border-color: #fff transparent;
-			// box-shadow: 10px 10px 13px -6px rgba(168,152,142,1);
 			display: block;
 			width: 0;
 		}
@@ -43,13 +40,28 @@
 	.readingVerbiage {
 		background-color: white;
 		width: 50%;
-		padding: 30px;
-		// box-shadow: 10px 10px 13px -6px rgba(168,152,142,1);
 		float: left;
+		@include respond-to ('small') {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+		padding: 30px;
+	}
+
+	.stepOneInfo {
+		width: 50%;
+		float: right;
+		@include respond-to ('small') {
+			text-align: left;
+			width: 100%;
+		}
 	}
 
 	.calculatingSpeed {
 		text-align: right;
+		@include respond-to ('small') {
+			text-align: left;
+		}
 		
 		h3 {
 			font-size: 3rem;
@@ -109,19 +121,15 @@
 .freeTimeQuery {
 	
 	.freeTimeContainer {
-		// border: 2px dashed yellow;
 		float: left;
 	}
 
 	.freeTimeInput {
-		// border: 2px solid blue;
 		color: $darkerGray;
-		// clear: left;
 		margin-right: 5%;
 		float: right;
 
 		@include respond-to('small') {
-			// margin-right: 0;
 			width: 100%;		
 		}
 
@@ -146,18 +154,12 @@
 		}
 
 		input[type="number"] {
-			// border: 1px solid red;
 			background-color: #f8f8f8;
 			color: $lighterGray;
 			width: 50px;
 			height: 50px;
 			float: left;
 			font-size: 1.8rem;
-
-			&:focus {
-				// outline:none;
-				// border: 3px solid blue;
-			} 
 		}
 
 		.freeTimeSubmit {

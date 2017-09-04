@@ -10,9 +10,21 @@
 
 	h3 {
 		font-size: 3rem;
+		@include respond-to ('small') {
+			padding-bottom: 2rem;
+		}
 	}
 
 	.freeTimeContainer {
 		float: left;
+		@include respond-to ('small') {
+			padding-bottom: 3rem;
+		}
+	}
+
+	.freeTimeSubmit {
+		@include respond-to ('small') {
+			margin-top: 2rem;
+		}
 	}
 }
