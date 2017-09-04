@@ -28,7 +28,7 @@
 		padding: 30px;
 		width: 100%;
 		text-align: center;
-		display: inline-block;
+		display: inline-block; 
 
 		@include respond-to('medium') {
 			float: left;
