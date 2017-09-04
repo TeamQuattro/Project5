@@ -74,48 +74,39 @@
 		span {
 			padding-right: 5px;
 		}		
+		button {
+			padding: 10px 30px;
+			font-size: 1.5rem;
+			border: none;
+			transition: .3s all;
+		}
 
 		#button-start {
 			background-color: $primaryColor;
-			font-size: 1.5rem;
 			color: white;
-			width: 110px;
-			height: 30px;
-			border: none;
-			transition: .3s all;
 			&:hover {
-				background-color: darken($primaryColor,20);
+				background-color: darken($primaryColor, 10);
 			}
 		}
 
 		#button-stop {
 			background-color: $primaryColor;
-			font-size: 1.5rem;
 			color: white;
-			width: 110px;
-			height: 30px;
-			border: none;
-			transition: .3s all;
 			&:hover {
-				background-color: darken($primaryColor,20);
+				background-color: darken($primaryColor, 10);
 			}
 		}
 
 		#button-reset {
 			background-color: white;
 			color: $lighterGray;
-			border: none;
-			width: 110px;
-			height: 30px;
-			font-size: 1.5rem;
-			transition: .3s all;
 			&:hover {
-				background-color: darken(white,20);
+				background-color: darken(white, 10);
 			}
-
 		}
 	}
 }
+
 
 .freeTimeQuery {
 	
