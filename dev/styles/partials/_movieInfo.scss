@@ -17,16 +17,6 @@
 	}
 
 	.movieResults {
-		// width: calc((100% - 36px) / 4);
-		// float: left;
-		// temporary BG for design display purposes
-		// background: pink;
-		// margin-left: 8px;
-		
-		&:first-child {
-			// not sure why it's not seeing this... Adjust calculations above if I get this to work...
-			// margin-left: 0;
-		}
 		.movie {
 			float: left;
 			width: calc((100% / 4) - 20px);	
