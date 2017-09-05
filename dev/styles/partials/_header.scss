@@ -44,6 +44,9 @@ header {
 	&::placeholder {
 		color: $tertiaryColor;
 	}
+	@include respond-to(small) {
+		font-size: 1.2rem;
+	}
 }
 	
 .submitBtn {
