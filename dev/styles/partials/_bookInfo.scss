@@ -3,6 +3,9 @@
 	padding-top: 50px;
 	padding-bottom: 50px;
 	background-size: contain;
+	@include respond-to ('small') {
+		overflow: auto;
+	}
 
 	p {
 		color: $quaternaryColor;
@@ -13,6 +16,10 @@
 		width: 25%;
 		float: left;
 		margin-left: 5%;
+		@include respond-to ('small') {
+			width: 100%;
+			margin-left: 0;
+		}
 		img {
 			box-shadow: 5px 5px 30px #000;
 			@include respond-to ('small') {

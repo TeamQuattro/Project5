@@ -19,6 +19,7 @@ h3 {
 	float: left;
 	@include respond-to ('small') {
 		padding-bottom: 3rem;
+		width: 100%;
 	}
 }
 
@@ -31,6 +32,9 @@ h3 {
 .freeTimeSelector {
 	width: 50%;
 	float: left;
+	@include respond-to ('small') {
+		width: 100%;
+	}
 		.freeTimeInput {
 		color: $darkerGray;
 		background-color: #ddd;
@@ -43,7 +47,6 @@ h3 {
 		h3 {
 			text-align: center;
 			margin-bottom: 20px;
-			margin-right: 6rem;
 		}
 		p {
 			text-align: center;
@@ -51,7 +54,11 @@ h3 {
 		.freeTimeHours, .freeTimeMinutes {
 			float: left;
 			width: 50%;
+			@include respond-to ('small') {
+				width: 100%;
 		}
+		}
+
 		.freeTimeHours {
 
 		}
@@ -90,14 +97,7 @@ h3 {
 		border-radius: 3px;
 		transition: .3s all;
 		letter-spacing: 2px;
-		margin-left: 19rem;
 		display: block;
-		@include respond-to('small') {
-			margin-left: 10% !important;		
-		}
-		@include respond-to('medium') {
-			margin-left: 59%;		
-		}
 		&:hover {
 			background-color: darken($primaryColor, 10)
 		}
