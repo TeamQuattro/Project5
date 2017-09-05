@@ -4,6 +4,10 @@ footer {
 	padding-bottom: 10px;
 	background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=);
 	background-size: cover;
+	
+	.wrapper {
+		height: auto;
+	}
 
 	img {
 		max-width: 100px;
@@ -31,7 +35,6 @@ footer {
 	.logos {
 		float: left;
 		padding-right: 20px;
-
 		@include respond-to(small) {
 			float: none;
 			padding-bottom: 20px;
@@ -55,6 +58,7 @@ footer {
 
 		@include respond-to(small) {
 			margin-top: 0px;
+			max-width: 100%;
 		}
 	}
 }
