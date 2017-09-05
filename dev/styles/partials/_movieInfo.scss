@@ -5,6 +5,7 @@
 	text-align: center;
 	@include respond-to ('small') {
 		overflow: auto;
+		height: auto;
 	}
 	@include respond-to ('medium') {
 		overflow: auto;
