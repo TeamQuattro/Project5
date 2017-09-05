@@ -51,6 +51,10 @@
 				font-size: 1.8rem;
 				line-height: 2.8rem;
 				color: #aaa;
+				@include respond-to("small") {
+					font-size: 1.5rem;
+					line-height: auto;
+				}
 			}
 		}
 	}

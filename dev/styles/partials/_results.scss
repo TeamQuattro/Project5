@@ -22,6 +22,12 @@
 		margin-bottom: 5px;
 	}
 
+	p {
+		@include respond-to("small") {
+			font-size: 1rem;
+		}
+	}
+
 	.resultsBox {
 		width: calc((100% - 16px) / 3);
 		background-color: white;
@@ -35,14 +41,13 @@
 	.userSecondsPerBook, .userDaysToRead, .userReadingSpeed {
 		font-size: 5rem;
 		color: #ab453c;
+
+		@include respond-to("small") {
+			font-size: 2.5rem;
+		}
 	}
 	.resultButtons {
 		margin: 50px;
-		img {
-			@include respond-to ('small') {
-				margin-left: 6rem;
-			}
-		}
 	}
 	.buyNow {
 		float: left;
@@ -62,8 +67,10 @@
 		letter-spacing: 2px;
 		padding: 10px 25px;
 		transition: .3s all;
+		
 		@include respond-to ('small') {
 			margin-top: 2rem;
+			font-size: 1.5rem;
 		}
 		&:hover {
 			background-color: darken($primaryColor,20);
