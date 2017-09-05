@@ -77,17 +77,16 @@
 		input[type="number"]:-ms-input-placeholder {color: #bbb; }
 
 		input[type="number"] {
-			background-color: #fff;
-			color: #666;
-			width: 50px;
-			height: 50px;
+			background-color: #f8f8f8;
+			color: $lighterGray;
+			float: left;
 			font-size: 1.8rem;
 			width: 100%;
 			padding: 20px;
 			text-align: center;
-				// &::-webkit-inner-spin-button {
-				// 	-webkit-appearance: none;
-				// }
+				&::-webkit-inner-spin-button {
+					-webkit-appearance: none;
+				}
 		}
 		label {
 			font-size: 1.8rem;
@@ -97,18 +96,10 @@
 		
 		div {
 			float: left;
+			width: 100%;
 			&:last-child {
 				clear: left;
 			}
-		}
-
-		input[type="number"] {
-			background-color: #f8f8f8;
-			color: $lighterGray;
-			width: 50px;
-			height: 50px;
-			float: left;
-			font-size: 1.8rem;
 		}
 	}
 }
@@ -129,6 +120,7 @@
 	}		
 	width: 110px;
 	height: 30px;	
+	margin: 0 auto;
 		
 	@include respond-to('small') {
 		width: 100%;
