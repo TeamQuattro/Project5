@@ -1,7 +1,7 @@
 // Twitter share button
 window.twttr = (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
+	t = window.twttr || {};
   if (d.getElementById(id)) return t;
   js = d.createElement(s);
   js.id = id;
@@ -38,7 +38,7 @@ function goToByScroll(id) {
 	setTimeout(function () {
 		toMe.removeClass("hightlightResult", 1500);
 	}, 500);
-}
+};
 
 // Stopwatch courtesy of Cathy Dutton 
 // https://codepen.io/cathydutton/pen/GBcvo
@@ -143,7 +143,7 @@ booksMovies.getMovieInfo = (userMovieChoice) => {
 	.fail((err) => {
 		alert("Unfortunately, no movies can be found right now. Please try again later!");
 	})
-}
+};
 
 // display movie information onto page
 booksMovies.displayMovieInfo = (movieResults) => {
@@ -151,7 +151,7 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			// 	movie backdrop path
 			let movBg = `https://image.tmdb.org/t/p/w1400_and_h450_bestv2${movieResults[i].backdrop_path}`;
 			// movie poster
-			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`)
+			let movImage = $("<img>").attr("src", `https://image.tmdb.org/t/p/w500${movieResults[i].poster_path}`).attr("alt", `${movieResults[i].title} poster image`);
 			//movie title <h2> and adding to page
 			let movTitle = $("<h2>").text(movieResults[i].title);
 			//movie year
@@ -160,15 +160,14 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			//select movie button
 			let movSelect = $("<button>").addClass("movieSelect").text("select");
 			// container for movies 
-			let movContainer = $("<div>").addClass("movie wow fadeInLeft").attr('data-movieBg', movBg).append(movImage, movTitle, movYear, movSelect);
+			let movContainer = $("<div>").addClass("movie wow fadeInLeft").attr("data-movieBg", movBg).append(movImage, movTitle, movYear, movSelect);
 			// .attr('data', 'wideimage')
 			//append into movie results class
-			$('.movieResults').append(movContainer);
+			$(".movieResults").append(movContainer);
 			// $('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url(${movBg})`).css("background-size", `contain`);  
 		}
-		$('.movieResults').on("click", ".movieSelect", function() {
 
-
+		$(".movieResults").on("click", ".movieSelect", function() {
 			//find the parent with a class of movie and grab the data atrribute
 			$(".bookInfo").removeClass("hidden");
 			$(".stepOneStopwatch").removeClass("hidden");
@@ -176,20 +175,18 @@ booksMovies.displayMovieInfo = (movieResults) => {
 			goToByScroll("bookInfo");
 			let selectedMovie = ($(this).siblings('h2').text());
 			booksMovies.getData(selectedMovie);
-
 			// $('.bookInfo').css("background-image", `url(${movBg})`);  
 		});
 
-		$('.movieResults').on("click", ".movie", function() {
+		$(".movieResults").on("click", ".movie", function() {
 			let bgMovie = $(this);
 			// console.log(bgMovie);
 			let movieBG = bgMovie.data('moviebg');
 			// console.log(movieBG); 
-			$('.bookInfo').css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`).css("background-position", `center center`);  
+			$(".bookInfo").css("background", `linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(${movieBG})`).css("background-size", `cover`).css("background-position", `center center`);  
 			// $('.bookInfo').css("background-image", `url(${movieBG})`);  
 		});
-
-}
+};
 
 //get book information
 booksMovies.getData = (query) => { // <-- query parameter
@@ -229,23 +226,20 @@ booksMovies.getData = (query) => { // <-- query parameter
 		console.log(`Book image is ${bookImageLarge}`);
 		console.log(`Book preview is ${previewLink}`);
 		console.log(`Book link is ${bookLink}`);
-
-		$('.bookPoster').html(`<img src="${bookImageLarge}">`);
-		$('.bookTitle').html(`<h1>${bookTitle}</h1>`); 
-		$('.bookAuthor').html(`<p>${authors}</p>`); 
-		$('.bookOverview').html(`<h2>Overview</h2><p>${description}</p>`);
+		$(".bookPoster").html(`<img src="${bookImageLarge}">`);
+		$(".bookTitle").html(`<h1>${bookTitle}</h1>`); 
+		$(".bookAuthor").html(`<p>${authors}</p>`); 
+		$(".bookOverview").html(`<h2>Overview</h2><p>${description}</p>`);
 		$(".buyNow").attr("href", bookLink);
-		$('.readingVerbiage').html(`<p>${paragraph}<p>`);
+		$(".readingVerbiage").html(`<p>${paragraph}<p>`);
 		$("#bookTitleResults").append(`${bookTitle}`);
-
 	});
 };
 
 
-
-booksMovies.displayData = function(totalTime) {
+booksMovies.displayData = (totalTime) => {
 	let secondsPerBook = totalTime * booksMovies.wordTotal / 100;
-	$( ".userSecondsPerBook" ).append( secondsPerBook )
+	$(".userSecondsPerBook").append(secondsPerBook);
 	// This if statement is to tell the app that if the user does not put a value into the input to set it to 0
 	let freeTimeHours = $(".freeTimeHours").val();
 	let freeTimeMinutes = $(".freeTimeMinutes").val();
@@ -256,15 +250,15 @@ booksMovies.displayData = function(totalTime) {
 		freeTimeMinutes = 0;
 	};
 	let wpm = ((100 / totalTime) * 60).toFixed(0);
-	console.log("wpm", wpm)
-	$( ".userReadingSpeed" ).append( wpm );
+	// console.log("wpm", wpm)
+	$(".userReadingSpeed").append(wpm);
 	// This is telling the app to multiply the freeTimeHours by 60 to get hours to minutes
 	let userFreeTime = parseInt(freeTimeHours * 60) + parseInt(freeTimeMinutes);
 	let userResults = ((secondsPerBook / 60) / userFreeTime).toFixed(0);
-	$( ".userDaysToRead" ).append( userResults );
-	console.log(secondsPerBook);
-	console.log(userFreeTime);
-	console.log(userResults);
+	$(".userDaysToRead").append(userResults);
+	// console.log(secondsPerBook);
+	// console.log(userFreeTime);
+	// console.log(userResults);
 }; 
 
 booksMovies.events = () => { // <-- Events, ie on click / submit
@@ -274,7 +268,7 @@ booksMovies.events = () => { // <-- Events, ie on click / submit
 
 let reloadPage = (e) => {
 	window.location.reload();
-}
+};
 
 
 booksMovies.init = () => { // <-- INITIALIZING
