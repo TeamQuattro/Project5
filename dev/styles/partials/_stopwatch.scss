@@ -2,6 +2,9 @@
 	background-color: $secondaryColor;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	@include respond-to ('small') {
+		height: 160vh;
+	}
 
 	//styling speech bubble from: http://nicolasgallagher.com/pure-css-speech-bubbles/demo/ 
 	.speechBubble {
@@ -34,6 +37,10 @@
 			font-weight: 300;
 			margin: 0;
 			padding: 0;
+			@include respond-to ('small') {
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+			}
 		}
 	}
 
@@ -72,6 +79,9 @@
 
 		#seconds, #tens {
 			font-size: 8rem;
+			@include respond-to ('small') {
+				font-size: 5rem;
+			}
 		}
 
 		#tens {
@@ -81,6 +91,13 @@
 		.watch {
 			font-size: 7.5rem;
 			color: $lighterGray;
+		}
+
+		.watchTimeSmall {
+			@include respond-to ('small') {
+				float: left;
+				width: 50%;
+			}
 		}
 
 		span {
