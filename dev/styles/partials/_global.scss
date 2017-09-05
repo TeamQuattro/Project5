@@ -41,10 +41,10 @@ button {
 	max-width: 1170px;
 	margin: 0 auto;
 	@include respond-to ('medium') {
-		padding: 0 15px;
+		// padding: 0 15px;
 	}
 	@include respond-to ('large') {
-		padding: 0 15px;
+		// padding: 0 15px;
 	}
 }
 
